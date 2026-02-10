@@ -23,7 +23,7 @@ const SECTIONS = [
     emoji: '📱',
     title: 'Frontend Apps',
     description: 'Preference, Workforce, and Planner — the three user-facing applications.',
-    link: '/docs/app-documentation/frontend-apps/preference-frontend',
+    link: '/docs/app-documentation/frontend-apps/receptor-preferencer',
   },
   {
     emoji: '🧮',
@@ -35,7 +35,7 @@ const SECTIONS = [
     emoji: '📂',
     title: 'Projects',
     description: 'Development workspace setup, contribution guides, and project management.',
-    link: '/docs/projects/development-workspace',
+    link: '/docs/infrastructure/development-workspace',
   },
   {
     emoji: '🧠',

@@ -14,14 +14,14 @@ Receptor is more than just an app; it's a comprehensive infrastructure designed 
 
 ### Business Planning
 Our foundation is built on a clear vision for Australia-wide implementation, focusing on:
-- [V/TO (EOS Strategy Core)](business-planning/operations/eos/vto)
-- [Modern Consultant (Hybrid Flywheel)](business-planning/strategy-vision/modern-consultant)
-- [Portfolio Matrix](business-planning/market-sales/portfolio-analysis)
-- [Branding & Identity](business-planning/brand/)
+- [V/TO (EOS Strategy Core)](https://docs.commonbond.au/corporate/docs/business-planning/operations/eos/vto)
+- [Modern Consultant (Hybrid Flywheel)](https://docs.commonbond.au/corporate/docs/business-planning/strategy-vision/modern-consultant)
+- [Portfolio Matrix](https://docs.commonbond.au/corporate/docs/business-planning/market-sales/portfolio-analysis)
+- [Branding & Identity](https://docs.commonbond.au/corporate/docs/business-planning/brand/)
 
 ### Service Offerings
 Receptor delivers value through structured service tiers—from Core allocation services available today to Strategic workforce integrations on our long-term roadmap:
-- [Service Catalog](business-planning/product/service-catalog)
+- [Service Catalog](https://docs.commonbond.au/corporate/docs/business-planning/product/service-catalog)
 
 ### Technical Foundation
 We leverage a world-class technology stack to ensure security and scalability:

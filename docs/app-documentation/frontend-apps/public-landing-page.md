@@ -68,7 +68,7 @@ All marketing content, value pillars, and roadmap items should be synchronized w
 
 ## Related Documentation
 
-- [**Branding & Identity**](../https://docs.commonbond.au/corporate/docs/business-planning/brand/) — Branding decisions and guidelines
-- [**V/TO (EOS Strategy)**](../https://docs.commonbond.au/corporate/docs/business-planning/operations/eos/vto) — The "Why" behind the Receptor platform
-- [**Service Catalog**](../https://docs.commonbond.au/corporate/docs/business-planning/product/service-catalog) — Detailed catalog of offerings
+- [**Branding & Identity**](https://docs.commonbond.au/corporate/docs/business-planning/brand/) — Branding decisions and guidelines
+- [**V/TO (EOS Strategy)**](https://docs.commonbond.au/corporate/docs/business-planning/operations/eos/vto) — The "Why" behind the Receptor platform
+- [**Service Catalog**](https://docs.commonbond.au/corporate/docs/business-planning/product/service-catalog) — Detailed catalog of offerings
 - [**Frontend Redevelopment Project**](../../projects/frontend-redevelopment) — Project roadmap and milestones
