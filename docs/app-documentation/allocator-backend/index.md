@@ -47,3 +47,6 @@ sequenceDiagram
 - [Matching Algorithm & Formulation](./algorithm.md)
 - [Core Data Models](./models.md)
 - [Eligibility Engine](./eligibility.md)
+- [API Reference](./api-reference.md)
+- [Business Rules & Configuration](./business-rules.md)
+- [Data Persistence](./data-persistence.md)

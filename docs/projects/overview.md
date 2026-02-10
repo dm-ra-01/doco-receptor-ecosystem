@@ -19,6 +19,8 @@ This section tracks the major development initiatives for the Receptor platform.
 | [Planner Frontend](./planner-frontend) | Management of allocation plans and runs (Next.js) | 🟢 Complete |
 | [Workforce Frontend](./workforce-frontend) | Organizational master data management (Next.js) | 🟡 In Progress |
 | [Allocator Backend](../app-documentation/allocator-backend) | Matching algorithm and optimization engine | 🟢 Complete |
+| [Allocator Refactoring](./allocator-refactoring) | Modernization of Python engine | 🟡 In Progress |
+| [OR-Tools Report](./ortools-migration-report) | Technical findings from solver migration | 🟢 Complete |
 | [Security Audit](./security-audit) | Comprehensive security assessment (SAST/DAST/OWASP) | 🔴 Not Started |
 
 ## Project Dependencies
