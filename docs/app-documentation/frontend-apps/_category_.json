@@ -1,0 +1,8 @@
+{
+  "label": "Frontend Apps",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "The Receptor platform consists of three specialized Next.js applications, each targeting different user roles and responsibilities."
+  }
+}
