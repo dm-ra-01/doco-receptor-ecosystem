@@ -83,14 +83,14 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Links',
+          title: 'Documentation Ecosystem',
           items: [
             {
-              label: 'Corporate Docs',
+              label: 'Common Bond Corporate',
               href: 'https://docs.commonbond.au/corporate',
             },
             {
-              label: 'Rotator Legacy',
+              label: 'Rotator Legacy Archive',
               href: 'https://docs.commonbond.au/rotator',
             },
           ],

@@ -46,7 +46,7 @@ const SECTIONS = [
 ];
 
 const SIBLINGS = [
-  { label: 'Corporate & Governance', href: 'https://docs.commonbond.au/corporate/', emoji: '🏛️' },
+  { label: 'Common Bond Corporate', href: 'https://docs.commonbond.au/corporate/', emoji: '🏛️' },
   { label: 'Rotator Legacy Archive', href: 'https://docs.commonbond.au/rotator/', emoji: '📜' },
 ];
 
