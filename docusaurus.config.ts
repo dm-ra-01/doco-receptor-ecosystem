@@ -9,12 +9,9 @@ const config: Config = {
   tagline: 'Technical documentation for the Receptor workforce platform.',
   favicon: 'img/favicon.png',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://docs.commonbond.au',
   baseUrl: '/receptor/',
+  trailingSlash: false,
 
   organizationName: 'dm-ra-01',
   projectName: 'doco-receptor-ecosystem',
