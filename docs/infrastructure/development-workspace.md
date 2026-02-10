@@ -31,16 +31,22 @@ The development workspace exists to:
 ```
 development/
 ├── .agent/
-│   └── rules/               # AI agent rules and directives
+│   └── rules/               # Consolidated AI agent rules and directives
+│       ├── core-workflow-standard.md
+│       ├── frontend-standards.md
+│       ├── infrastructure-and-doco-sync.md
+│       └── supabase-standards.md
 ├── .vscode/                 # VS Code settings and configurations
 ├── frontend/
 │   ├── preference-frontend/  # Next.js worker preferencing app
+│   ├── planner-frontend/     # Next.js management/planning app
+│   ├── workforce-frontend/   # Next.js organizational master data app
 │   └── rotator_worker/       # Flutter legacy admin (Phase 1)
-├── receptor-documentation/  # Docusaurus documentation (this site)
+├── documentation/
+│   ├── receptor-ecosystem/   # Product technical docs (this site)
+│   ├── common-bond/          # Corporate strategy and governance
+│   └── rotator-legacy/       # Legacy Flutter archival docs
 ├── supabase-receptor/       # Supabase infrastructure
-│   ├── receptor-supabase/   # Database schema and migrations
-│   ├── receptor-dev/        # Docker development environment
-│   └── receptor-prod/       # Docker production environment
 └── common-bond.code-workspace  # VS Code workspace configuration
 ```
 
@@ -52,14 +58,10 @@ The `.agent/rules/` directory contains Markdown files that define behavioral rul
 
 | Rule | Purpose |
 |------|---------|
-| **Backend-Frontend Contract** | Ensures database schema changes are reflected in Flutter frontend models |
-| **Declarative Migrations** | Enforces schema-driven development using Supabase CLI |
-| **Environment Parity** | Maintains consistency between development and production environments |
-| **Infrastructure & Doco Sync** | Keeps documentation synchronized with infrastructure changes |
-| **RLS Policy Safety** | Ensures all tables have proper Row Level Security policies |
-| **Script Consolidation** | Reduces technical debt by consolidating redundant script logic |
-| **Secrets Standard** | Standardizes handling of environment variables and secrets |
-| **SQL Schema Quality** | Enforces SQL naming conventions and documentation standards |
+| **Core Workflow Standard** | Manages branching, user approval, and submodule integrity |
+| **Frontend Standards** | Enforces TDD, Auth patterns, and production readiness for UI apps |
+| **Infrastructure & Doco Sync** | Synchronizes infrastructure changes across all documentation sites |
+| **Supabase Standards** | Ensures schema quality, RLS, and declarative migration compliance |
 
 ### Rule Format
 
