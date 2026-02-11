@@ -4,7 +4,7 @@ This guide explains how to initialize the database for a new self-hosted Supabas
 
 ## Prerequisites
 
-- A running Supabase instance (see [Self-Hosted Setup](./supabase-self-hosted.md)).
+- A running Supabase instance (see [Self-Hosted Setup](../environment/supabase-self-hosted.md)).
 - [Supabase CLI](https://supabase.com/docs/guides/cli) installed locally.
 
 ## Initialization Workflow

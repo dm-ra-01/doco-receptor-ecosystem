@@ -1,0 +1,8 @@
+{
+  "label": "Environment",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Self-hosted Supabase setup, VM configuration, development workspace, and deployment architecture."
+  }
+}

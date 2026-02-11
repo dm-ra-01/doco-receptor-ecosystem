@@ -88,19 +88,20 @@
   padding: 3rem 1.5rem 4rem;
 }
 
-/* ── Section Cards Grid ────────────── */
-.grid {
+/* ── Primary Cards (3 big cards) ────── */
+.primaryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
-.sectionCard {
+.primaryCard {
   display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
-  border-radius: 12px;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.75rem;
+  border-radius: 14px;
   border: 1px solid #e5e7eb;
   background: #fff;
   text-decoration: none;
@@ -108,12 +109,12 @@
   transition: all 0.2s ease;
 }
 
-[data-theme='dark'] .sectionCard {
+[data-theme='dark'] .primaryCard {
   background: #18181b;
   border-color: #27272a;
 }
 
-.sectionCard:hover {
+.primaryCard:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px -8px rgba(79, 70, 229, 0.15);
   border-color: #818cf8;
@@ -123,13 +124,13 @@
 
 .cardEmoji {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
 .cardTitle {
   font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .cardDescription {
@@ -137,6 +138,66 @@
   opacity: 0.7;
   margin: 0;
   line-height: 1.5;
+}
+
+/* ── Quick Access (5 smaller cards) ─── */
+.quickHeading {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.quickCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .quickCard {
+  background: #18181b;
+  border-color: #27272a;
+}
+
+.quickCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px -6px rgba(79, 70, 229, 0.12);
+  border-color: #818cf8;
+  text-decoration: none;
+  color: inherit;
+}
+
+.quickEmoji {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.quickTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.quickDescription {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin: 0;
+  line-height: 1.4;
 }
 
 /* ── Sibling Sites ─────────────────── */
@@ -183,6 +244,17 @@
   color: inherit;
 }
 
+/* ── Responsive ────────────────────── */
+@media (max-width: 996px) {
+  .primaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .quickGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 600px) {
   .heroTitle {
     font-size: 2rem;
@@ -192,7 +264,7 @@
     padding: 3rem 1.5rem 2.5rem;
   }
 
-  .grid {
+  .quickGrid {
     grid-template-columns: 1fr;
   }
 }

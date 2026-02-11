@@ -8,7 +8,7 @@ Flutter tests are located in the `test/` directory of the `rotator_worker` repos
 
 ### Prerequisites
 
-- A running Supabase dev environment (see [Self-Hosted Setup](./supabase-self-hosted.md)).
+- A running Supabase dev environment (see [Self-Hosted Setup](../environment/supabase-self-hosted.md)).
 - Test credentials configured in `test_user_credentials.json`.
 
 ### Configuration: `test_user_credentials.json`
@@ -249,4 +249,4 @@ If you see `statusCode: 530` or authentication fetch errors, it usually indicate
 - Verify `SUPABASE_PUBLIC_URL` in `.env`.
 
 ### Function Does Not Exist (`uuid_generate_v4`)
-Ensure that the `extensions` schema is in the `search_path` for the role executing the query. This is handled automatically by `setup.sh` by configuring both the database roles and the PostgREST `PGRST_DB_EXTRA_SEARCH_PATH`. See [Database Initialization](./database-initialization.md) for more details.
+Ensure that the `extensions` schema is in the `search_path` for the role executing the query. This is handled automatically by `setup.sh` by configuring both the database roles and the PostgREST `PGRST_DB_EXTRA_SEARCH_PATH`. See [Database Initialization](../database/database-initialization.md) for more details.

@@ -111,7 +111,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
 ## Reference Documentation
 
-- [Receptor Preferencer](../app-documentation/frontend-apps/receptor-preferencer)
+- [Receptor Preferencer](../platform/frontend-apps/receptor-preferencer)
 - [Receptor Planner](./planner-frontend)
 - [Receptor Workforce](./workforce-frontend)
 - [Project 1: Supabase Migration](./supabase-migration)

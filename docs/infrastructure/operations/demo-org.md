@@ -176,5 +176,5 @@ Failure to synchronize these files will cause automated integration tests to fai
 ## Related Documentation
 
 - [Testing Guide](./testing-guide.md) - How to run tests
-- [Database Schema](./database-schema.md) - Full schema overview
-- [RLS Policies](./rls-policies.md) - Row Level Security details
+- [Database Schema](../database/database-schema.md) - Full schema overview
+- [RLS Policies](../database/rls-policies.md) - Row Level Security details

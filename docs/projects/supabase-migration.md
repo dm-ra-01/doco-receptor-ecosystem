@@ -143,7 +143,7 @@ SMTP_SENDER_NAME="Receptor"
 
 ## Reference Documentation
 
-- [Legacy to New Migration Guide](../infrastructure/legacy-to-new-migration)
+- [Legacy to New Migration Guide](../infrastructure/database/legacy-to-new-migration)
 - [Technical Specs](https://github.com/dm-ra-01/supabase-receptor/blob/main/specs.md)
 - [Setup Script](https://github.com/dm-ra-01/supabase-receptor/blob/main/utils/setup.sh)
 - [Migration Script](https://github.com/dm-ra-01/supabase-receptor/blob/main/utils/migrate.py)

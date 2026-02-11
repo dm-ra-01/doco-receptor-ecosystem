@@ -153,5 +153,5 @@ Each frontend application has distinct access patterns enforced by Supabase RLS:
 | **Planner** | Email/Password | Manager role required for allocation operations |
 | **Workforce** | Email/Password | Admin role required for organizational changes |
 
-See [RLS Policies](../infrastructure/rls-policies) and [Database Functions](./database-functions.md) for detailed logic and security documentation.
+See [RLS Policies](../infrastructure/database/rls-policies) and [Database Functions](./database-functions.md) for detailed logic and security documentation.
 
