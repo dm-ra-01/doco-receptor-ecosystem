@@ -8,13 +8,40 @@ The **Receptor Preferencer** is the primary interface for healthcare workers par
 
 > **Implementation**: Desktop and Mobile interfaces are live with real-time Supabase integration. See [My Preferences Microservice](/docs/projects/my-preferences-microservice) for technical specifications.
 
-## Key Tasks
-- **View Rotations**: Browse upcoming rotation cycles and their durations.
-- **Job Line Discovery**: Search and filter available job lines based on specialty, location, or team.
-- **Preference Submission**: Rank job lines using the 5-level preference system (Love/Like/Neutral/Dislike/Never).
-- **Status Tracking**: View preferencing window status (Open/Submitted/Closed) with countdown timer.
-- **Profile Management**: Update contact information and professional qualifications.
-- **Allocation View**: Clear display of the final matching results and schedule.
+## User Tasks & Capabilities
+
+The following tasks are supported to ensure a seamless and efficient preferencing experience for healthcare workers.
+
+### ❤️ The Three-Step Workflow
+To manage the complexity of ranking up to 140 job lines, the Preferencer utilizes a structured three-phase workflow:
+
+1.  **Phase 1: Sentiment Discovery (Specialties)**  
+    Users sort high-level specialties and teams into five sentiment buckets using a drag-and-drop interface. This establishes the worker's clinical and professional interests.
+2.  **Phase 2: Job Line Evaluation (Attractiveness)**  
+    The system calculates a "Job Line Attractiveness Score" by cross-referencing Phase 1 sentiments with the specific rotations in each line. Users then refine these automated scores by sorting job lines into their own sentiment buckets.
+3.  **Phase 3: Deep Ranking (1-to-n)**  
+    Inside each bucket, users perform a final vertical drag-and-drop to establish an absolute 1-to-n priority list, which serves as the final input for the Allocator engine.
+
+### 🧠 Intelligence & Safety
+- **Attractiveness Engine**: Normalizes sentiments to highlight the most compatible job lines immediately.
+- **Conflict Set Detection**: Prompts users to review "mixed signals" (e.g., a "Loved" specialty inside a "Disliked" job line) to ensure data integrity.
+- **Power User Matrix**: Allows global blacklisting of specific hospital-specialty combinations.
+- **Submission Guardrails**: Requires an **X-positive line minimum** to ensure robust allocation results. The system calculates the required depth based on the total available pool (e.g., for a 50+ job line run, a 12-positive minimum is typically enforced to prevent allocation failure).
+
+### 📤 Submission & Status
+- **Status Tracking**: Monitor the preferencing window with real-time countdowns and status indicators (Open/Submitted/Locked).
+- **Submission Confirmation**: Finalize preferences with a clear summary and confirmation screen.
+- **Edit/Retract**: Modify or retract submissions at any time before the organization locks the window.
+
+### 📋 Post-Allocation
+- **Allocation View**: Access final match results and detailed rotation schedules once the cycle is complete.
+- **Profile Management**: Maintain professional qualifications and contact details ensuring accurate payroll and compliance data.
+
+---
+
+## Technical Progress & Stories
+
+Implementation of these features is tracked via the detailed **[User Story Registry](./receptor-preferencer-user-stories)**.
 
 ## Preference Levels
 

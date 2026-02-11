@@ -249,7 +249,7 @@ flowchart TD
 │  │ Closes: Jul 31, 2026 at 5:00 PM  ││
 │  └─────────────────────────────────┘│
 │                                     │
-│  Your Preferences (12 of 24 set)    │
+│  Your Preferences (X of Y set)      │
 │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
 │                                     │
 │  🔍 Filter: [________________] ▼    │
@@ -299,6 +299,11 @@ The allocation run can be in one of three states:
 | **Submitted** | Blue indicator, "Preferences locked" | Read-only view, option to retract |
 | **Closed** | Grey indicator, "Window closed on [date]" | Read-only view only |
 
+### Submission Guardrails
+
+The application enforces an **X-positive line minimum** before submission is allowed. This value is calculated dynamically based on the total job lines and users in the allocation run to ensure a high probability of a stable match for all participants.
+- **Example Calculation**: For a run with 50+ job lines, the system may suggest/enforce a minimum of 12 positive selections (Love/Like).
+
 ---
 
 ## Data Model Integration
@@ -340,6 +345,8 @@ export interface PreferenceJobLine {
   allocationRunWorkerMappingId: string;
   likeDislikePreference: PreferenceLevel;
   orderPreference: number;
+  notes: string | null;
+  attractivenessScore: number | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -881,21 +888,24 @@ describe('Preferences Page Integration', () => {
 ### RLS Policies Required
 
 ```sql
--- Workers can only view their own mapping
-CREATE POLICY "Workers view own mapping"
-ON allocation_run_worker_mappings
-FOR SELECT
-USING (worker = auth.uid());
-
--- Workers can only insert/update preferences for their mapping
-CREATE POLICY "Workers manage own preferences"
-ON preference_worker_job_lines
-FOR ALL
+-- Workers can only view their own mapping if it belongs to their organization
+CREATE POLICY "Worker has view only access if locked" ON "public"."worker_specialty_sentiments" 
+FOR SELECT TO "authenticated" 
 USING (
-  allocation_run_worker_mapping IN (
-    SELECT id FROM allocation_run_worker_mappings
-    WHERE worker = auth.uid()
-  )
+  (SELECT worker FROM public.allocation_run_worker_mappings WHERE id = allocation_run_worker_mapping) 
+  IN (SELECT worker_id FROM public.func_list_user_workers())
+);
+
+-- Workers can only manage their own preferences if the mapping is unlocked
+CREATE POLICY "Worker has full access if unlocked" ON "public"."worker_specialty_sentiments" 
+TO "authenticated" 
+USING (
+  (SELECT worker FROM public.allocation_run_worker_mappings WHERE id = allocation_run_worker_mapping AND locked IS NOT TRUE)
+  IN (SELECT worker_id FROM public.func_list_user_workers())
+)
+WITH CHECK (
+  (SELECT worker FROM public.allocation_run_worker_mappings WHERE id = allocation_run_worker_mapping AND locked IS NOT TRUE)
+  IN (SELECT worker_id FROM public.func_list_user_workers())
 );
 ```
 
