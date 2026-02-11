@@ -1,0 +1,8 @@
+{
+  "label": "Database",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Schema design, initialization, RLS policies, and migration guides for the Receptor database."
+  }
+}

@@ -14,11 +14,11 @@ This section tracks the major development initiatives for the Receptor platform.
 | [Supabase Migration](./supabase-migration) | Migrate from cloud to self-hosted Supabase | 🟡 In Progress |
 | [Test Code Review](./test-code-review) | Audit and improve rotator_worker test suite | 🔴 Not Started |
 | [Frontend Redevelopment](./frontend-redevelopment) | Core Suite: Workforce, Planner, Preferencer, Allocator | 🟡 In Progress |
-| [Public Landing Page](../app-documentation/frontend-apps/public-landing-page) | Marketing and branding hub (React/Vite) | 🟢 Complete |
+| [Public Landing Page](../platform/frontend-apps/public-landing-page) | Marketing and branding hub (React/Vite) | 🟢 Complete |
 | [Preferencer Frontend](./my-preferences-microservice) | Worker preference submission app (Next.js) | 🟡 In Progress |
 | [Planner Frontend](./planner-frontend) | Management of allocation plans and runs (Next.js) | 🟢 Complete |
 | [Workforce Frontend](./workforce-frontend) | Organizational master data management (Next.js) | 🟡 In Progress |
-| [Allocator Backend](../app-documentation/allocator-backend) | Matching algorithm and optimization engine | 🟢 Complete |
+| [Allocator Backend](../platform/allocator-backend) | Matching algorithm and optimization engine | 🟢 Complete |
 | [Allocator Refactoring](./allocator-refactoring) | Modernization of Python engine | 🟡 In Progress |
 | [OR-Tools Report](./ortools-migration-report) | Technical findings from solver migration | 🟢 Complete |
 | [Security Audit](./security-audit) | Comprehensive security assessment (SAST/DAST/OWASP) | 🔴 Not Started |
@@ -77,6 +77,6 @@ flowchart TD
 | **Legacy Admin** | [rotator_worker](https://github.com/dm-ra-01/rotator_worker) | Flutter admin portal (deprecated) |
 
 ### Related Documentation
-- [Legacy to New Migration Guide](../infrastructure/legacy-to-new-migration)
-- [Database Schema Reference](../infrastructure/database-schema)
-- [Testing Guide](../infrastructure/testing-guide)
+- [Legacy to New Migration Guide](../infrastructure/database/legacy-to-new-migration)
+- [Database Schema Reference](../infrastructure/database/database-schema)
+- [Testing Guide](../infrastructure/operations/testing-guide)

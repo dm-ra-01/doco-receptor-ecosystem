@@ -917,8 +917,8 @@ USING (
 
 ### Design Resources
 
-- [UI/UX Plans](../app-documentation/ui-ux-plans)
-- [Receptor Preferencer](../app-documentation/frontend-apps/receptor-preferencer)
+- [UI/UX Plans](../platform/ui-ux-plans)
+- [Receptor Preferencer](../platform/frontend-apps/receptor-preferencer)
 
 ---
 

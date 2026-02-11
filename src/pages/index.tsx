@@ -6,41 +6,56 @@ import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-const SECTIONS = [
+const PRIMARY_SECTIONS = [
   {
     emoji: '🏗️',
-    title: 'Architecture',
-    description: 'System design, data flows, and service topology for the Receptor platform.',
-    link: '/docs/app-documentation/architecture',
+    title: 'Platform',
+    description: 'Architecture, frontend apps, allocator engine, security, and core platform documentation.',
+    link: '/docs/platform/architecture',
   },
   {
     emoji: '⚙️',
     title: 'Infrastructure',
-    description: 'Supabase self-hosting, database schema, RLS policies, and CI/CD pipelines.',
-    link: '/docs/infrastructure/supabase-self-hosted',
+    description: 'Self-hosted Supabase, database schema, VM environment, key management, and CI/CD.',
+    link: '/docs/infrastructure/environment/supabase-self-hosted',
   },
+  {
+    emoji: '📋',
+    title: 'Projects',
+    description: 'Active development initiatives, migration tracking, and project roadmaps.',
+    link: '/docs/projects/overview',
+  },
+];
+
+const QUICK_ACCESS = [
   {
     emoji: '📱',
     title: 'Frontend Apps',
-    description: 'Preference, Workforce, and Planner — the three user-facing applications.',
-    link: '/docs/app-documentation/frontend-apps/receptor-preferencer',
+    description: 'Preferencer, Workforce, and Planner interfaces.',
+    link: '/docs/platform/frontend-apps/receptor-preferencer',
   },
   {
     emoji: '🧮',
     title: 'Allocator Engine',
-    description: 'The MILP-based optimization engine that powers fair rotation allocation.',
-    link: '/docs/app-documentation/allocator-backend/algorithm',
+    description: 'OR-Tools CP-SAT matching algorithm.',
+    link: '/docs/platform/allocator-backend/',
   },
   {
-    emoji: '📂',
-    title: 'Projects',
-    description: 'Development workspace setup, contribution guides, and project management.',
-    link: '/docs/infrastructure/development-workspace',
+    emoji: '🗄️',
+    title: 'Database',
+    description: 'Schema, RLS policies, and migrations.',
+    link: '/docs/infrastructure/database/database-schema',
+  },
+  {
+    emoji: '🧪',
+    title: 'Testing & DevOps',
+    description: 'Test suites, CI/CD, and troubleshooting.',
+    link: '/docs/infrastructure/operations/testing-guide',
   },
   {
     emoji: '🧠',
     title: 'Knowledge Map',
-    description: 'Interactive graph of all documentation relationships and topics.',
+    description: 'Interactive graph of all doc relationships.',
     link: '/knowledge-graph',
   },
 ];
@@ -72,12 +87,24 @@ function HeroSection() {
   );
 }
 
-function SectionCard({ emoji, title, description, link }: typeof SECTIONS[0]) {
+function PrimaryCard({ emoji, title, description, link }: typeof PRIMARY_SECTIONS[0]) {
   return (
-    <Link to={link} className={styles.sectionCard}>
+    <Link to={link} className={styles.primaryCard}>
       <span className={styles.cardEmoji}>{emoji}</span>
-      <Heading as="h3" className={styles.cardTitle}>{title}</Heading>
-      <p className={styles.cardDescription}>{description}</p>
+      <div>
+        <Heading as="h3" className={styles.cardTitle}>{title}</Heading>
+        <p className={styles.cardDescription}>{description}</p>
+      </div>
+    </Link>
+  );
+}
+
+function QuickCard({ emoji, title, description, link }: typeof QUICK_ACCESS[0]) {
+  return (
+    <Link to={link} className={styles.quickCard}>
+      <span className={styles.quickEmoji}>{emoji}</span>
+      <Heading as="h4" className={styles.quickTitle}>{title}</Heading>
+      <p className={styles.quickDescription}>{description}</p>
     </Link>
   );
 }
@@ -89,12 +116,22 @@ export default function Home(): ReactNode {
       description="Technical documentation for the Receptor workforce management platform.">
       <HeroSection />
       <main className={styles.main}>
-        <section className={styles.grid}>
-          {SECTIONS.map((section) => (
-            <SectionCard key={section.title} {...section} />
+        {/* Primary navigation — three big cards */}
+        <section className={styles.primaryGrid}>
+          {PRIMARY_SECTIONS.map((section) => (
+            <PrimaryCard key={section.title} {...section} />
           ))}
         </section>
 
+        {/* Quick-access shortcuts */}
+        <Heading as="h2" className={styles.quickHeading}>Quick Access</Heading>
+        <section className={styles.quickGrid}>
+          {QUICK_ACCESS.map((item) => (
+            <QuickCard key={item.title} {...item} />
+          ))}
+        </section>
+
+        {/* Sibling sites */}
         <section className={styles.siblings}>
           <Heading as="h2" className={styles.siblingsTitle}>Other Documentation Sites</Heading>
           <div className={styles.siblingLinks}>

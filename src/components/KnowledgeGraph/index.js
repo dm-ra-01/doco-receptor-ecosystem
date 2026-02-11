@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 // ── Cluster color palette ──
 const CLUSTERS = {
     'business-planning': { label: 'Strategy', light: '#0d9488', dark: '#2dd4bf' },
-    'app-documentation': { label: 'Product', light: '#4f46e5', dark: '#818cf8' },
+    'platform': { label: 'Platform', light: '#4f46e5', dark: '#818cf8' },
     'infrastructure': { label: 'Infra', light: '#d97706', dark: '#fbbf24' },
     'projects': { label: 'Projects', light: '#059669', dark: '#34d399' },
     'governance-and-legal': { label: 'Governance', light: '#e11d48', dark: '#fb7185' },

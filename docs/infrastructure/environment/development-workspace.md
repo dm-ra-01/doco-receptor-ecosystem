@@ -116,10 +116,10 @@ When an AI assistant (like Antigravity) operates in this workspace:
 
 - [Configuration Guide](./config-guide.md) — Environment variables and secrets
 - [Supabase Self-Hosted](./supabase-self-hosted.md) — Docker infrastructure setup
-- [Database Initialization](./database-initialization.md) — Schema and migration workflow
-- [Key Management](./key-management.md) — Sensitive data strategy
-- [Changelog](./changelog.md) — Version history
-- [CI/CD Pipeline](./ci-cd.md) — Build and deployment
-- [Troubleshooting](./troubleshooting.md) — Common issues and solutions
-- [Internal Systems](./internal-systems.md) — Operational stack
+- [Database Initialization](../database/database-initialization.md) — Schema and migration workflow
+- [Key Management](../security/key-management.md) — Sensitive data strategy
+- [Changelog](../operations/changelog.md) — Version history
+- [CI/CD Pipeline](../operations/ci-cd.md) — Build and deployment
+- [Troubleshooting](../operations/troubleshooting.md) — Common issues and solutions
+- [Internal Systems](../security/internal-systems.md) — Operational stack
 - [Common Bond VM](./common-bond-vm.md) — Host environment
