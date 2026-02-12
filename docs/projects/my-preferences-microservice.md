@@ -22,7 +22,7 @@ flowchart LR
     subgraph Philosophy
         A[Single Purpose] --> B[One Allocation Run]
         A --> C[Mobile First]
-        A --> D[Fast & Accessible]
+        A --> D["Fast & Accessible"]
     end
 ```
 

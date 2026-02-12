@@ -46,7 +46,7 @@ The system scales all float values to large integers (using a `SCALING_FACTOR` o
 
 ```mermaid
 graph TD
-    A[Raw Ranks] --> B[Normalization & Ties]
+    A[Raw Ranks] --> B["Normalization & Ties"]
     B --> C[Budget for Unranked Items]
     C --> D[Scaling to Integers]
     D --> E[Solver Input]
