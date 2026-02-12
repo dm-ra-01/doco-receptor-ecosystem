@@ -19,6 +19,9 @@ erDiagram
     positions ||--o{ rotations : "fulfills"
     workers ||--o{ preference_worker_job_lines : "submits"
     job_lines ||--o{ preference_worker_job_lines : "ranked via"
+    allocation_run_worker_mappings ||--o{ worker_specialty_sentiments : "phase 1 sorting"
+    allocation_run_worker_mappings ||--o{ worker_preference_customisations : "constraints/overrides"
+    allocation_run_worker_mappings ||--o{ worker_screening_rules : "automated filtering"
     users ||--|| workers : "associated with"
 ```
 
@@ -51,6 +54,9 @@ The following tables represent the core business logic.
 | `rotations` | Defined periods of work rotations. | [Active](./rls-policies) |
 | `positions` | Specific job roles or placements. | [Active](./rls-policies) |
 | `preference_worker_job_lines` | Worker preferences for specific job lines. | [Active](./rls-policies) |
+| `worker_specialty_sentiments` | Phase 1 sentiment analysis per mapping. | [Active](./rls-policies) |
+| `worker_preference_customisations` | Positive/Negative constraints (Whitelists/Blacklists). | [Active](./rls-policies) |
+| `worker_screening_rules` | Results of eligibility screening logic. | [Active](./rls-policies) |
 | `shifts` | Individual shift records (future feature). | Future |
 | `qualification_tags` | Tags for worker qualifications. | [Active](./rls-policies) |
 | `position_tags` | Tags for position requirements. | Pending |

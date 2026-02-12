@@ -24,10 +24,11 @@ The Receptor platform follows a **Core Suite Strategy** with distinct requiremen
 
 The Preferencer is designed for healthcare workers who need to submit preferences quickly during brief breaks:
 
-- **Minimal Navigation**: Users should be dropped directly into the preferencing workflow after login.
+- **Three-Step Workflow**: Guide users through Specialty Sentiment (Phase 1) → Job Line Attractiveness (Phase 2) → Absolute Ranking (Phase 3).
+- **Intelligent Scoring**: Automatically calculate job line "Attractiveness" based on specialty sentiment to reduce cognitive load.
 - **Visual Timelines**: Use horizontal grids (Desktop) and vertical cards with mini-timelines (Mobile) to represent job lines and their constituent rotations.
 - **Immediate Feedback**: Actions like liking, disliking, or re-ordering should provide instant visual feedback.
-- **Data Integrity**: Ensure the UI accurately reflects the Supabase schema (`AllocationRun`, `JobLine`, `Rotation`).
+- **Data Integrity**: Ensure the UI accurately reflects the Supabase schema (`AllocationRun`, `JobLine`, `Rotation`) and enforces an **X-positive-selection minimum** based on the total job line pool (e.g. 12 minimum for 50+ lines).
 
 ### Responsive Strategy
 
