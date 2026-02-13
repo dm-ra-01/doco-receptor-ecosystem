@@ -62,6 +62,10 @@ The internal seed data includes specific mappings and workers required for the P
    ./utils/cli.sh db diff -f feature_name
    ```
 3. **Verify**: Use `db reset` to ensure the schema can be built cleanly from the migration history.
+4. **Reconcile**: Capture all applied changes into the top-level `schema.sql` to maintain a human-readable declarative baseline.
+   ```bash
+   ./utils/cli.sh db diff -f schema.sql --local
+   ```
 
 ---
 
