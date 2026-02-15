@@ -52,6 +52,19 @@ The reset command will:
 The internal seed data includes specific mappings and workers required for the Playwright E2E test suite. Running `db reset` is the recommended way to prepare a clean test environment.
 :::
 
+### 4. Database Testing Suites
+
+The database includes several specialized testing suites for local development:
+
+- **Security Suite**: `supabase/tests/database/security/` - Audits RLS and RBAC truth matrices.
+- **Performance Suite**: `supabase/tests/database/performance/` - Validates indices and pg_stat_statements.
+- **Quality Suite**: `supabase/tests/database/quality/` - Verifies constraints and immutability.
+
+Run them using:
+```bash
+npx supabase test db
+```
+
 ---
 
 ## Declarative Development Workflow

@@ -16,8 +16,8 @@ Additional features for context and advanced control.
 | **Status** | 🔴 **Pending** |
 
 #### 🛠️ Technical Tasks
-- [ ] **Backend**: Create table/fields for rotation-specific notes per worker.
-- [ ] **Frontend**: Add "Add Note" button/modal to Rotation cards in `MobileListView`/`PreferenceGrid`.
+- [x] **Backend**: Create table/fields for rotation-specific notes per worker.
+- [x] **Frontend**: Add "Add Note" button/modal to Rotation cards in `MobileListView`/`PreferenceGrid`.
 
 ### NT-02: Job Line Notes
 | Attribute | Detail |
@@ -27,8 +27,8 @@ Additional features for context and advanced control.
 | **Status** | 🔴 **Pending** |
 
 #### 🛠️ Technical Tasks
-- [ ] **Backend**: Create table/fields for job-line-specific notes per worker.
-- [ ] **Frontend**: Add "Add Note" button to `JobLineCard`.
+- [x] **Backend**: Create table/fields for job-line-specific notes per worker.
+- [x] **Frontend**: Add "Add Note" button to `JobLineCard` (triggers `NoteModal`).
 
 ## Power User Tools
 
@@ -37,10 +37,10 @@ Additional features for context and advanced control.
 |:---|:---|
 | **User Story** | As a Power User, I want to access a High-Level Matrix View to see all options at once. |
 | **Priority** | P2 |
-| **Status** | 🔴 **Pending** |
+| **Status** | 🟢 **Complete** |
 
 #### 🛠️ Technical Tasks
-- [ ] **Frontend**: Design dense table view (React Table / Data Grid) for Desktop.
+- [x] **Frontend**: Design dense table view (React Table / Data Grid) for Desktop.
 
 ### PU-02: Global Filtering
 | Attribute | Detail |

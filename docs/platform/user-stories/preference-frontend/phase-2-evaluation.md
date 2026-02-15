@@ -19,8 +19,8 @@ This phase involves the detailed review and categorization of individual Job Lin
 
 #### 🛠️ Technical Tasks
 - [x] **Algorithm**: Implement `func_calculate_job_line_attractiveness` to normalize Phase 1 sentiments into job line scores.
-- [ ] **Backend**: Expose score in `preference_worker_job_lines` view.
-- [ ] **Frontend**: Add "Match Score" badge/indicator to `JobLineCard.tsx`.
+- [x] **Backend**: Expose score in `preference_worker_job_lines` view.
+- [x] **Frontend**: Add "Match Score" badge/indicator to `JobLineCard.tsx`.
 
 ### WF-03: Job Line Bucketing
 | Attribute | Detail |
