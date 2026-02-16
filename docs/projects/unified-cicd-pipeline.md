@@ -45,10 +45,11 @@ Centralized management of the monorepo lifecycle.
 
 ### 🗓️ Planner Frontend (`planner-frontend`)
 - **Primary Goal**: Reliability of complex workforce planning UI.
-- [x] **Unit & Integration**: Vitest suite with high coverage requirements.
-- [x] **RLS Security Gating**: Integrated security tests using `test-utils.ts`.
-- [ ] **Deployment Previews**: Automatic Cloudflare Pages previews for every PR.
-- [ ] **Visual Regression**: Playwright snapshot testing for complex planning matrices.
+- [x] Unit & Integration: Vitest suite with high coverage requirements.
+- [x] RLS Security Gating: Integrated security tests using `test-utils.ts`.
+- [x] Linting & Type Stability: Automated ESLint and TSC gates in CI.
+- [ ] Deployment Previews: Automatic Cloudflare Pages previews for every PR.
+- [ ] Visual Regression: Playwright snapshot testing for complex planning matrices.
 
 ### 🙋 Preference Frontend (`preference-frontend`)
 - **Primary Goal**: Mobile/Web accessibility and worker submission reliability.
@@ -82,6 +83,7 @@ Centralized management of the monorepo lifecycle.
 | CICD-001| Research | Global | ✅ | [audit-2026-02-16.md](../infrastructure/operations/audit-2026-02-16) |
 | CICD-005| Unit Tests| Planner| ✅ | [Codecov Workflow](https://github.com/dm-ra-01/planner-frontend/blob/main/.github/workflows/codecov.yml) |
 | CICD-006| Security | Supabase| ✅ | [RLS Test Suite](https://github.com/dm-ra-01/planner-frontend/blob/main/src/test/security/RLS.test.ts) |
+| CICD-007| Lint & Type| Planner| ✅ | [Codecov Workflow](https://github.com/dm-ra-01/planner-frontend/blob/main/.github/workflows/codecov.yml) |
 
 ---
 
