@@ -90,6 +90,19 @@ Supports granular shift scheduling (not yet in production).
 | `location` | uuid | FK to `locations` |
 | `timezone` | text | Timezone string |
 
+### allocationruns (Access Control)
+
+The `allocationruns` table is the primary orchestration point for scheduling. The `status` field is used by RLS policies to lock data across the ecosystem.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | uuid | Primary key |
+| `allocationplan` | uuid | FK to parent plan |
+| `status` | text | `open`, `closed`, or `archived`. Controls Worker write access to preferencing; Admins retain maintenance access. |
+| `name` | text | Display name for the run |
+| `periodstart` | date | The start of the allocation window |
+| `periodend` | date | The end of the allocation window |
+
 ## Allocation Logic & MIP Constraints
 
 The matching engine (`match-backend`) uses Mixed Integer Programming (MIP) to allocate workers to job lines. The following constraints are implemented in the solver:

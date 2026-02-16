@@ -21,6 +21,7 @@ This section tracks the major development initiatives for the Receptor platform.
 | [Allocator Backend](../platform/allocator-backend) | Matching algorithm and optimization engine | 🟢 Complete |
 | [Allocator Refactoring](./allocator-refactoring) | Modernization of Python engine | 🟡 In Progress |
 | [OR-Tools Report](./ortools-migration-report) | Technical findings from solver migration | 🟢 Complete |
+| [Unified CI/CD Pipeline](./unified-cicd-pipeline) | Centralized, automated pipeline for the monorepo | 🟡 In Progress |
 | [Security Audit](./security-audit) | Comprehensive security assessment (SAST/DAST/OWASP) | 🔴 Not Started |
 
 ## Project Dependencies
@@ -30,6 +31,7 @@ flowchart TD
     subgraph Infrastructure["Core Infrastructure"]
         P1["Supabase Migration"]
         P2["Test Code Review"]
+        P6["Unified CI/CD Pipeline"]
     end
     
     subgraph CoreSuite["Receptor Core Suite"]
@@ -40,6 +42,8 @@ flowchart TD
     end
     
     P1 --> P2
+    P6 --> Infrastructure
+    P6 --> CoreSuite
     P1 --> P3A
     P1 --> P3B
     P1 --> P4

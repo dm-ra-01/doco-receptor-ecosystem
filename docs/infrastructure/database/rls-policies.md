@@ -19,6 +19,7 @@ We define three primary tiers of access:
 - **Scope**: Full CRUD access to all data within their specific Organization.
 - **Restrictions**: 
   - Cannot access data from other healthcare organizations.
+  - **Clinical Year Maintenance**: Retain write access to `rotations` and `allocation_runs` even in `closed` or `archived` states to support rotation swaps and adjustments during the clinical year.
 
 ### 3. Global Administrator
 - **Objective**: Platform maintenance and cross-org management.
@@ -42,6 +43,16 @@ We define three primary tiers of access:
 | `allocationplans` | - | SELECT (Org-scoped view) | ALL |
 | `allocationruns` | - | SELECT (Org-scoped view) | ALL |
 | `allocation_plan_team_tag_customisations` | SELECT (Associated Plan) | ALL (Org-level) | ALL |
+
+---
+
+## Status-Gated Modification Protection (Worker Level)
+
+To ensure data integrity and prevent post-hoc changes to finalized schedules by workers, the following tables have RLS policies that block Worker-level `UPDATE` and `DELETE` operations unless the associated `allocation_run.status` is `open`:
+
+- `preference_worker_rotations`: Workers can only submit or modify preferences while the run is in the `open` phase. Once `closed` or `archived`, only Workforce Managers or Global Admins can perform modifications.
+
+Admins (Workforce managers) retain modify access to `rotations` and `allocation_runs` during `closed` and `archived` states to support necessary clinical year maintenance.
 
 ---
 
