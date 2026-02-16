@@ -1,6 +1,12 @@
 # Testing Guide
 
-This guide details how to run automated tests for the Receptor project, covering both Flutter frontend and Supabase backend logic.
+This guide details how to run automated tests and quality gates for the Receptor project, covering the Flutter frontend, Next.js applications, and Supabase backend logic.
+
+## Quality Gates (Monorepo Standard)
+As of Feb 2026, all Receptor repositories are required to pass foundational PR gates before merging:
+1. **Linting**: No ESLint errors (minimal warnings).
+2. **Type Stability**: Successful `npx tsc --noEmit`.
+3. **Unit Tests**: Minimum coverage thresholds in Vitest/Pytest.
 
 ## Flutter Testing
 
@@ -81,15 +87,34 @@ Run the full suite or specific test files:
 
 ```bash
 cd ~/development/preference-frontend
-npm test                                     # Full unit/integration suite (Vitest)
-npm test src/__tests__/preferencing/context.test.ts  # Integration (Context Mapping)
-npm test src/__tests__/preferencing/actions.test.ts  # Server Actions (Mocked)
-npm test src/__tests__/components/PreferenceWorkflow.test.tsx  # Component UI
+npm run test                                 # Full unit/integration suite (Vitest)
+npm run lint                                 # Style check
+npx tsc --noEmit                             # Type check
 ```
 
 :::note E2E Exclusion
-Unit tests (`npm test`) automatically exclude Playwright E2E files (mapped in `src/__tests__/e2e/`) to prevent conflicts between Vitest and Playwright test runners. Use `npm run test:e2e` for end-to-end browser verification.
+Unit tests (`npm test`) automatically exclude Playwright E2E files. Use `npm run test:e2e` for end-to-end browser verification.
 :::
+
+---
+
+## Planner Frontend Testing (`planner-frontend`)
+
+The Planner serves as the reference implementation for high-fidelity testing and CI/CD gates.
+
+### Test Categories
+- **Unit & Integration**: MSW-backed tests for components and services in `src/test/`.
+- **Type Stability**: Integrated `vitest-axe` and `jest-dom` types for strict `tsc` checks.
+- **Accessibility**: Automated audits in `Accessibility.test.tsx`.
+- **RLS Gating**: Security tests verifying schema isolation.
+
+### Running Quality Gates
+```bash
+cd ~/development/planner-frontend
+npm run lint         # ESLint audit
+npx tsc --noEmit     # TypeScript safety check
+npm run test         # Vitest execution
+```
 
 ---
 
