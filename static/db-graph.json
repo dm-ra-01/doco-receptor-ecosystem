@@ -1,0 +1,3034 @@
+{
+  "schemas": [
+    "match",
+    "messages",
+    "secure"
+  ],
+  "tables": {
+    "messages.email_templates": {
+      "schema": "messages",
+      "name": "email_templates",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "unique_name",
+          "type": "text"
+        },
+        {
+          "name": "html_body",
+          "type": "text"
+        },
+        {
+          "name": "text_body",
+          "type": "text"
+        },
+        {
+          "name": "subject",
+          "type": "text"
+        }
+      ]
+    },
+    "messages.emails": {
+      "schema": "messages",
+      "name": "emails",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "recipient",
+          "type": "text"
+        },
+        {
+          "name": "sender",
+          "type": "text"
+        },
+        {
+          "name": "cc",
+          "type": "text"
+        },
+        {
+          "name": "bcc",
+          "type": "text"
+        },
+        {
+          "name": "subject",
+          "type": "text"
+        },
+        {
+          "name": "text_body",
+          "type": "text"
+        },
+        {
+          "name": "html_body",
+          "type": "text"
+        },
+        {
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "name": "log",
+          "type": "jsonb"
+        }
+      ]
+    },
+    "public.acl_group_mappings": {
+      "schema": "public",
+      "name": "acl_group_mappings",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        },
+        {
+          "name": "location",
+          "type": "uuid"
+        },
+        {
+          "name": "teamcategory",
+          "type": "uuid"
+        },
+        {
+          "name": "team",
+          "type": "uuid"
+        },
+        {
+          "name": "acl_group",
+          "type": "uuid"
+        },
+        {
+          "name": "allocationplan",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.acl_group_right_mappings": {
+      "schema": "public",
+      "name": "acl_group_right_mappings",
+      "columns": [
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "acl_group",
+          "type": "uuid"
+        },
+        {
+          "name": "acl_right",
+          "type": "text"
+        }
+      ]
+    },
+    "public.acl_group_worker_mappings": {
+      "schema": "public",
+      "name": "acl_group_worker_mappings",
+      "columns": [
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "worker",
+          "type": "uuid"
+        },
+        {
+          "name": "aclgroup",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.acl_groups": {
+      "schema": "public",
+      "name": "acl_groups",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.acl_rights": {
+      "schema": "public",
+      "name": "acl_rights",
+      "columns": [
+        {
+          "name": "id",
+          "type": "text"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        }
+      ]
+    },
+    "public.allocation_plan_position_mappings": {
+      "schema": "public",
+      "name": "allocation_plan_position_mappings",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "startdate",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "enddate",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "position",
+          "type": "uuid"
+        },
+        {
+          "name": "allocationplan",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.allocation_plan_team_tag_customisations": {
+      "schema": "public",
+      "name": "allocation_plan_team_tag_customisations",
+      "columns": [
+        {
+          "name": "allocation_plan",
+          "type": "uuid"
+        },
+        {
+          "name": "team_tag",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "rotation_color",
+          "type": "bigint"
+        }
+      ]
+    },
+    "public.allocation_run_preferencer_weightings": {
+      "schema": "public",
+      "name": "allocation_run_preferencer_weightings",
+      "columns": [
+        {
+          "name": "job_line",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "allocation_run",
+          "type": "uuid"
+        },
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "qualification_tag_ids",
+          "type": "uuid"
+        },
+        {
+          "name": "weighting",
+          "type": "smallint"
+        },
+        {
+          "name": "worker_mapping_ids",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.allocation_run_worker_mappings": {
+      "schema": "public",
+      "name": "allocation_run_worker_mappings",
+      "columns": [
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "worker",
+          "type": "uuid"
+        },
+        {
+          "name": "allocation_run",
+          "type": "uuid"
+        },
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "locked",
+          "type": "boolean"
+        },
+        {
+          "name": "submitted",
+          "type": "boolean"
+        },
+        {
+          "name": "invited_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "withdrawal_reason",
+          "type": "text"
+        },
+        {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "withdrawal_effective_at",
+          "type": "timestamp with time zone"
+        }
+      ]
+    },
+    "public.allocationplans": {
+      "schema": "public",
+      "name": "allocationplans",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        },
+        {
+          "name": "timezone",
+          "type": "text"
+        },
+        {
+          "name": "default_term_length_weeks",
+          "type": "smallint"
+        }
+      ]
+    },
+    "public.allocationruns": {
+      "schema": "public",
+      "name": "allocationruns",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "startdate",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "enddate",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "allocationplan",
+          "type": "uuid"
+        },
+        {
+          "name": "status",
+          "type": "text"
+        },
+        {
+          "name": "due_date",
+          "type": "timestamp with time zone"
+        }
+      ]
+    },
+    "public.allocator_py_allocations": {
+      "schema": "public",
+      "name": "allocator_py_allocations",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "job_line",
+          "type": "uuid"
+        },
+        {
+          "name": "original_preference",
+          "type": "real"
+        },
+        {
+          "name": "allocator_py_run",
+          "type": "uuid"
+        },
+        {
+          "name": "worker_mapping",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.allocator_py_runs": {
+      "schema": "public",
+      "name": "allocator_py_runs",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "allocation_run",
+          "type": "uuid"
+        },
+        {
+          "name": "completed_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "queued_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "is_exclusive",
+          "type": "boolean"
+        },
+        {
+          "name": "included_job_lines",
+          "type": "uuid"
+        },
+        {
+          "name": "included_worker_mappings",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.job_line_eligibility": {
+      "schema": "public",
+      "name": "job_line_eligibility",
+      "columns": [
+        {
+          "name": "job_line",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "included_qualification_tag_ids",
+          "type": "uuid"
+        },
+        {
+          "name": "excluded_qualification_tag_ids",
+          "type": "uuid"
+        },
+        {
+          "name": "included_worker_mapping_ids",
+          "type": "uuid"
+        },
+        {
+          "name": "excluded_worker_mapping_ids",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.job_line_worker_mappings": {
+      "schema": "public",
+      "name": "job_line_worker_mappings",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "start_date",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "end_date",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "job_line",
+          "type": "uuid"
+        },
+        {
+          "name": "worker",
+          "type": "uuid"
+        },
+        {
+          "name": "preference_number",
+          "type": "integer"
+        },
+        {
+          "name": "allocation_run_worker_mapping",
+          "type": "uuid"
+        },
+        {
+          "name": "finalised_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "released_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "fte",
+          "type": "real"
+        },
+        {
+          "name": "emailed_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "locked_at",
+          "type": "timestamp with time zone"
+        }
+      ]
+    },
+    "public.job_lines": {
+      "schema": "public",
+      "name": "job_lines",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "sort_order",
+          "type": "smallint"
+        },
+        {
+          "name": "allocation_run",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.locations": {
+      "schema": "public",
+      "name": "locations",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "address",
+          "type": "text"
+        },
+        {
+          "name": "timezone",
+          "type": "text"
+        },
+        {
+          "name": "googleplaceid",
+          "type": "text"
+        },
+        {
+          "name": "coordinates",
+          "type": "text"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.orggroups": {
+      "schema": "public",
+      "name": "orggroups",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        },
+        {
+          "name": "location",
+          "type": "uuid"
+        },
+        {
+          "name": "teamcategory",
+          "type": "uuid"
+        },
+        {
+          "name": "team",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.orgs": {
+      "schema": "public",
+      "name": "orgs",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "domain",
+          "type": "text"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "defaulttimezone",
+          "type": "text"
+        }
+      ]
+    },
+    "public.position_tag_mappings": {
+      "schema": "public",
+      "name": "position_tag_mappings",
+      "columns": [
+        {
+          "name": "position",
+          "type": "uuid"
+        },
+        {
+          "name": "position_tag",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        }
+      ]
+    },
+    "public.position_tags": {
+      "schema": "public",
+      "name": "position_tags",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "id",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.positions": {
+      "schema": "public",
+      "name": "positions",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "internalid",
+          "type": "text"
+        },
+        {
+          "name": "displayname",
+          "type": "text"
+        },
+        {
+          "name": "costcentre",
+          "type": "text"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "team",
+          "type": "uuid"
+        },
+        {
+          "name": "color_override",
+          "type": "bigint"
+        },
+        {
+          "name": "fte",
+          "type": "numeric"
+        }
+      ]
+    },
+    "public.preference_worker_job_lines": {
+      "schema": "public",
+      "name": "preference_worker_job_lines",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "order_preference",
+          "type": "integer"
+        },
+        {
+          "name": "like_dislike_preference_old",
+          "type": "text"
+        },
+        {
+          "name": "allocation_run_worker_mapping",
+          "type": "uuid"
+        },
+        {
+          "name": "job_line",
+          "type": "uuid"
+        },
+        {
+          "name": "like_dislike_preference",
+          "type": "smallint"
+        },
+        {
+          "name": "attractiveness_score",
+          "type": "double"
+        },
+        {
+          "name": "notes",
+          "type": "text"
+        }
+      ]
+    },
+    "public.preference_worker_rotations": {
+      "schema": "public",
+      "name": "preference_worker_rotations",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "allocation_run_worker_mapping",
+          "type": "uuid"
+        },
+        {
+          "name": "rotation",
+          "type": "uuid"
+        },
+        {
+          "name": "like_dislike_preference",
+          "type": "smallint"
+        },
+        {
+          "name": "notes",
+          "type": "text"
+        }
+      ]
+    },
+    "public.qualification_tags": {
+      "schema": "public",
+      "name": "qualification_tags",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.rotations": {
+      "schema": "public",
+      "name": "rotations",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "startdate",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "enddate",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "color_override",
+          "type": "bigint"
+        },
+        {
+          "name": "position",
+          "type": "uuid"
+        },
+        {
+          "name": "assignedjobline",
+          "type": "uuid"
+        },
+        {
+          "name": "nameoverride",
+          "type": "text"
+        },
+        {
+          "name": "allocation_run",
+          "type": "uuid"
+        },
+        {
+          "name": "fte",
+          "type": "numeric"
+        }
+      ]
+    },
+    "public.team_tag_mappings": {
+      "schema": "public",
+      "name": "team_tag_mappings",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "team_tag",
+          "type": "uuid"
+        },
+        {
+          "name": "team",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.team_tags": {
+      "schema": "public",
+      "name": "team_tags",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "org",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.teamcategories": {
+      "schema": "public",
+      "name": "teamcategories",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "location",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.teams": {
+      "schema": "public",
+      "name": "teams",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "teamcategory",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.users": {
+      "schema": "public",
+      "name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "browsing_currentorg",
+          "type": "uuid"
+        },
+        {
+          "name": "dark_mode",
+          "type": "boolean"
+        },
+        {
+          "name": "isadmin",
+          "type": "boolean"
+        },
+        {
+          "name": "first_name",
+          "type": "text"
+        },
+        {
+          "name": "last_name",
+          "type": "text"
+        },
+        {
+          "name": "confirmed_at",
+          "type": "timestamp with time zone"
+        }
+      ]
+    },
+    "public.worker_specialty_sentiments": {
+      "schema": "public",
+      "name": "worker_specialty_sentiments",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "allocation_run_worker_mapping",
+          "type": "uuid"
+        },
+        {
+          "name": "team_tag",
+          "type": "uuid"
+        },
+        {
+          "name": "sentiment_value",
+          "type": "smallint"
+        }
+      ]
+    },
+    "public.worker_preference_customisations": {
+      "schema": "public",
+      "name": "worker_preference_customisations",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "allocation_run_worker_mapping",
+          "type": "uuid"
+        },
+        {
+          "name": "location",
+          "type": "uuid"
+        },
+        {
+          "name": "team_tag",
+          "type": "uuid"
+        },
+        {
+          "name": "position_tag",
+          "type": "uuid"
+        },
+        {
+          "name": "override_type",
+          "type": "text"
+        },
+        {
+          "name": "score_modifier",
+          "type": "double"
+        }
+      ]
+    },
+    "public.worker_qualifications": {
+      "schema": "public",
+      "name": "worker_qualifications",
+      "columns": [
+        {
+          "name": "worker",
+          "type": "uuid"
+        },
+        {
+          "name": "start_date",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "end_date",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "qualification_tag",
+          "type": "uuid"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "id",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.worker_screening_rules": {
+      "schema": "public",
+      "name": "worker_screening_rules",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "allocation_run_worker_mapping",
+          "type": "uuid"
+        },
+        {
+          "name": "rule_type",
+          "type": "text"
+        },
+        {
+          "name": "rule_data",
+          "type": "jsonb"
+        }
+      ]
+    },
+    "public.workergroupmappings": {
+      "schema": "public",
+      "name": "workergroupmappings",
+      "columns": [
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "worker",
+          "type": "uuid"
+        },
+        {
+          "name": "group",
+          "type": "uuid"
+        }
+      ]
+    },
+    "public.workers": {
+      "schema": "public",
+      "name": "workers",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "createdat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "updatedat",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "firstname",
+          "type": "text"
+        },
+        {
+          "name": "lastname",
+          "type": "text"
+        },
+        {
+          "name": "browsing_currentlocation",
+          "type": "uuid"
+        },
+        {
+          "name": "browsing_currentteam",
+          "type": "uuid"
+        },
+        {
+          "name": "browsing_currentteamcategory",
+          "type": "uuid"
+        },
+        {
+          "name": "email",
+          "type": "text"
+        },
+        {
+          "name": "telmain",
+          "type": "text"
+        },
+        {
+          "name": "preferencecomment",
+          "type": "text"
+        },
+        {
+          "name": "avatarurl",
+          "type": "text"
+        },
+        {
+          "name": "qualificationlevel",
+          "type": "text"
+        },
+        {
+          "name": "linkedorg",
+          "type": "uuid"
+        },
+        {
+          "name": "linkeduser",
+          "type": "uuid"
+        },
+        {
+          "name": "browsing_currentallocationplan",
+          "type": "uuid"
+        },
+        {
+          "name": "browsing_currentallocationrun",
+          "type": "uuid"
+        },
+        {
+          "name": "internal_id",
+          "type": "text"
+        },
+        {
+          "name": "invited_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "preferred_name",
+          "type": "text"
+        }
+      ]
+    },
+    "secure.auth_codes": {
+      "schema": "secure",
+      "name": "auth_codes",
+      "columns": [
+        {
+          "name": "code",
+          "type": "text"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid"
+        },
+        {
+          "name": "refresh_token",
+          "type": "text"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "expires_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "metadata",
+          "type": "jsonb"
+        }
+      ]
+    },
+    "secure.worker_invites": {
+      "schema": "secure",
+      "name": "worker_invites",
+      "columns": [
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "worker",
+          "type": "uuid"
+        },
+        {
+          "name": "invite_code",
+          "type": "uuid"
+        },
+        {
+          "name": "claimed_at",
+          "type": "timestamp with time zone"
+        },
+        {
+          "name": "expires_at",
+          "type": "timestamp with time zone"
+        }
+      ]
+    }
+  },
+  "functions": [
+    {
+      "schema": "messages",
+      "name": "func_release_allocations",
+      "args": "\"allocation_run_id\" \"uuid\"",
+      "returns": "void",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "messages",
+      "name": "func_send_email_message",
+      "args": "\"message\" \"jsonb\"",
+      "returns": "json",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "messages",
+      "name": "send_email_clicksend",
+      "args": "\"message\" \"jsonb\"",
+      "returns": "integer",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "messages",
+      "name": "send_email_inbucket",
+      "args": "\"message\" \"jsonb\"",
+      "returns": "integer",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "messages",
+      "name": "send_email_sendgrid",
+      "args": "\"message\" \"jsonb\"",
+      "returns": "json",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "check_is_allocation_plan_viewer_for_worker",
+      "args": "\"worker_id\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "fun_check_is_acl_group_admin",
+      "args": "\"acl_group_id\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "fun_check_is_acl_group_member",
+      "args": "\"acl_group_id\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_allocation_run_submit_preferences",
+      "args": "\"mapping_id\" \"uuid\"",
+      "returns": "void",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_calculate_job_line_attractiveness",
+      "args": "\"p_mapping_id\" \"uuid\"",
+      "returns": "void",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_check_allocation_plan_privilege",
+      "args": "\"allocation_plan_id\" \"uuid\", \"permission\" \"text\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_check_allocation_run_privilege",
+      "args": "\"allocation_run_id\" \"uuid\", \"permission\" \"text\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_check_has_privilege",
+      "args": "\"org_id\" \"uuid\", \"location_id\" \"uuid\", \"team_category_id\" \"uuid\", \"team_id\" \"uuid\", \"permission\" \"text\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_check_is_admin",
+      "args": "",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_check_is_allocation_run_admin",
+      "args": "\"acl_group_id\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_claim_worker_account",
+      "args": "\"worker_id\" \"uuid\", \"claim_code\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_create_allocation_plan",
+      "args": "\"org\" \"uuid\", \"name\" \"text\", \"timezone\" \"text\", \"default_term_length_weeks\" integer",
+      "returns": "uuid",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_detail_worker_allocation_mappings",
+      "args": "",
+      "returns": "TABLE(mapping_id uuid, allocation_run uuid, allocation_plan uuid)",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_email_job_line_assignment",
+      "args": "\"job_line_worker_mapping_id\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_invite_worker",
+      "args": "\"worker_id\" \"uuid\"",
+      "returns": "void",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_list_allocation_plan_rights",
+      "args": "\"allocation_plan_id\" \"uuid\"",
+      "returns": "TABLE(acl_group uuid, acl_right text)",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_list_allocation_run_positions",
+      "args": "",
+      "returns": "TABLE(position_id uuid)",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_list_team_tag_mappings_for_allocation_plan",
+      "args": "\"allocation_plan_id\" \"uuid\"",
+      "returns": "TABLE(team uuid, team_tag uuid, created_at timestamp with time zone)",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_list_user_workers",
+      "args": "",
+      "returns": "TABLE(worker_id uuid, org_id uuid)",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_preference_job_line_move_down",
+      "args": "\"p_preference_worker_mapping_id\" \"uuid\", \"p_preference_job_line_id\" \"uuid\"",
+      "returns": "void",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_preference_job_line_move_up",
+      "args": "\"p_preference_worker_mapping_id\" \"uuid\", \"p_preference_job_line_id\" \"uuid\"",
+      "returns": "void",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_preference_job_line_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_preferencing_finalise_match",
+      "args": "\"job_line_worker_mapping_id\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "func_preferencing_unfinalise_match",
+      "args": "\"job_line_worker_mapping_id\" \"uuid\"",
+      "returns": "boolean",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "get_worker_qualifications",
+      "args": "\"p_allocation_run_id\" \"uuid\"",
+      "returns": "TABLE(worker_mapping_id uuid, qualification_tag_id uuid)",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "handle_new_org_assign_rights",
+      "args": "\"org_id\" \"uuid\", \"worker_id\" \"uuid\"",
+      "returns": "void",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "populate_allocation_run",
+      "args": "\"p_data\" \"jsonb\"",
+      "returns": "uuid",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_after_allocation_plan_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_allocator_py_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_job_line_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_location_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_location_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_org_creation",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_plan_pos_mapping_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_plan_pos_mapping_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_preference_job_line_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_rotation_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_rotation_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_team_category_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_team_category_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_team_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_team_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_user_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_worker_insert",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "public",
+      "name": "trigger_on_worker_update",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "secure",
+      "name": "func_list_allocation_plan_teams",
+      "args": "",
+      "returns": "TABLE(allocation_plan uuid)",
+      "language": "plpgsql"
+    },
+    {
+      "schema": "secure",
+      "name": "trigger_on_new_auth_user",
+      "args": "",
+      "returns": "trigger",
+      "language": "plpgsql"
+    }
+  ],
+  "triggers": [],
+  "policies": [
+    {
+      "name": "ALL org workers have view access",
+      "on_schema": "public",
+      "on_table": "team_tag_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(EXISTS ( SELECT 1\n   FROM (\"public\".\"team_tags\"\n     JOIN \"public\".\"workers\" ON ((\"workers\".\"linkedorg\" = \"team_tags\".\"org\""
+    },
+    {
+      "name": "Admins can update org",
+      "on_schema": "public",
+      "on_table": "orgs",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_is_admin\"("
+    },
+    {
+      "name": "Admins can view all orgs (needed for creating orgs)",
+      "on_schema": "public",
+      "on_table": "orgs",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_is_admin\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "allocation_plan_position_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "allocation_run_preferencer_weightings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "allocation_run_worker_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "allocationplans",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "allocationruns",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "job_line_eligibility",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "job_lines",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "positions",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "preference_worker_job_lines",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "preference_worker_rotations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "qualification_tags",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "worker_preference_customisations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "worker_qualifications",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "worker_screening_rules",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "worker_specialty_sentiments",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Allocator admin read-only access",
+      "on_schema": "public",
+      "on_table": "workers",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(((\"auth\".\"jwt\"("
+    },
+    {
+      "name": "Delete access",
+      "on_schema": "public",
+      "on_table": "acl_groups",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"org\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'aclGroup.delete'::\"text\""
+    },
+    {
+      "name": "Delete access",
+      "on_schema": "public",
+      "on_table": "allocation_plan_position_mappings",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", ( SELECT \"positions\".\"team\"\n   FROM \"public\".\"positions\"\n  WHERE (\"positions\".\"id\" = \"allocation_plan_position_mappings\".\"position\""
+    },
+    {
+      "name": "Delete permission",
+      "on_schema": "public",
+      "on_table": "teamcategories",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", \"location\", NULL::\"uuid\", NULL::\"uuid\", 'teamCategory.delete'::\"text\""
+    },
+    {
+      "name": "Delete permission",
+      "on_schema": "public",
+      "on_table": "teams",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", \"teamcategory\", NULL::\"uuid\", 'team.delete'::\"text\""
+    },
+    {
+      "name": "Edit position access",
+      "on_schema": "public",
+      "on_table": "positions",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", \"team\", 'position.edit'::\"text\""
+    },
+    {
+      "name": "Edit via allocationPlan.edit",
+      "on_schema": "public",
+      "on_table": "rotations",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_run_privilege\"(\"allocation_run\", 'allocationPlan.edit'::\"text\""
+    },
+    {
+      "name": "Group members can view details",
+      "on_schema": "public",
+      "on_table": "acl_group_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"acl_group\" IN ( SELECT \"acl_group_worker_mappings\".\"aclgroup\"\n   FROM \"public\".\"acl_group_worker_mappings\"\n  WHERE (\"acl_group_worker_mappings\".\"worker\" IN ( SELECT \"func_list_user_workers\".\"worker_id\"\n           FROM \"public\".\"func_list_user_workers\"("
+    },
+    {
+      "name": "Group members can view details",
+      "on_schema": "public",
+      "on_table": "acl_group_right_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"fun_check_is_acl_group_member\"(\"acl_group\""
+    },
+    {
+      "name": "Has  allocationRun.delete permission",
+      "on_schema": "public",
+      "on_table": "allocationruns",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_plan_privilege\"(\"allocationplan\", 'allocationRun.delete'::\"text\""
+    },
+    {
+      "name": "Has allocationPlan.delete right",
+      "on_schema": "public",
+      "on_table": "allocationplans",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"org\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'allocationPlan.delete'::\"text\""
+    },
+    {
+      "name": "Has allocationPlan.view right",
+      "on_schema": "public",
+      "on_table": "allocationruns",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_plan_privilege\"(\"allocationplan\", 'allocationPlan.view'::\"text\""
+    },
+    {
+      "name": "Has allocationPlan.view right on allocation plan",
+      "on_schema": "public",
+      "on_table": "allocationplans",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_plan_privilege\"(\"id\", 'allocationPlan.view'::\"text\""
+    },
+    {
+      "name": "Has allocationPlan.view right on org",
+      "on_schema": "public",
+      "on_table": "allocationplans",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"org\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'allocationPlan.view'::\"text\""
+    },
+    {
+      "name": "Has allocationRun.edit right",
+      "on_schema": "public",
+      "on_table": "allocationruns",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_run_privilege\"(\"id\", 'allocationRun.edit'::\"text\""
+    },
+    {
+      "name": "Has edit right on org",
+      "on_schema": "public",
+      "on_table": "allocationplans",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"org\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'allocationPlan.edit'::\"text\""
+    },
+    {
+      "name": "Has location.edit permission",
+      "on_schema": "public",
+      "on_table": "locations",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", \"id\", NULL::\"uuid\", NULL::\"uuid\", 'location.edit'::\"text\""
+    },
+    {
+      "name": "Has org level workerQualification.delete access",
+      "on_schema": "public",
+      "on_table": "worker_qualifications",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(( SELECT \"workers\".\"linkedorg\"\n   FROM \"public\".\"workers\"\n  WHERE (\"workers\".\"id\" = \"worker_qualifications\".\"worker\""
+    },
+    {
+      "name": "Has org level workerQualification.view access",
+      "on_schema": "public",
+      "on_table": "worker_qualifications",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(( SELECT \"workers\".\"linkedorg\"\n   FROM \"public\".\"workers\"\n  WHERE (\"workers\".\"id\" = \"worker_qualifications\".\"worker\""
+    },
+    {
+      "name": "Has position.edit team-level right",
+      "on_schema": "public",
+      "on_table": "allocation_plan_position_mappings",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", ( SELECT \"positions\".\"team\"\n   FROM \"public\".\"positions\"\n  WHERE (\"positions\".\"id\" = \"allocation_plan_position_mappings\".\"position\""
+    },
+    {
+      "name": "Has team.view team-level right",
+      "on_schema": "public",
+      "on_table": "allocation_plan_position_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", ( SELECT \"positions\".\"team\"\n   FROM \"public\".\"positions\"\n  WHERE (\"positions\".\"id\" = \"allocation_plan_position_mappings\".\"position\""
+    },
+    {
+      "name": "Mapped workers have view access",
+      "on_schema": "public",
+      "on_table": "allocation_plan_team_tag_customisations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"allocation_plan\" IN ( SELECT \"func_detail_worker_allocation_mappings\".\"allocation_plan\"\n   FROM \"public\".\"func_detail_worker_allocation_mappings\"("
+    },
+    {
+      "name": "Mapped workers have view access",
+      "on_schema": "public",
+      "on_table": "allocationplans",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"id\" IN ( SELECT \"func_detail_worker_allocation_mappings\".\"allocation_plan\"\n   FROM \"public\".\"func_detail_worker_allocation_mappings\"("
+    },
+    {
+      "name": "Mapped workers have view access",
+      "on_schema": "public",
+      "on_table": "allocationruns",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"id\" IN ( SELECT \"func_detail_worker_allocation_mappings\".\"allocation_run\"\n   FROM \"public\".\"func_detail_worker_allocation_mappings\"("
+    },
+    {
+      "name": "Mapped workers have view access",
+      "on_schema": "public",
+      "on_table": "job_lines",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"allocation_run\" IN ( SELECT \"func_detail_worker_allocation_mappings\".\"allocation_run\"\n   FROM \"public\".\"func_detail_worker_allocation_mappings\"("
+    },
+    {
+      "name": "Mapped workers have view access for their allocation runs",
+      "on_schema": "public",
+      "on_table": "rotations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(EXISTS ( SELECT 1\n   FROM (\"public\".\"allocationruns\"\n     JOIN \"public\".\"job_lines\" ON ((\"job_lines\".\"allocation_run\" = \"allocationruns\".\"id\""
+    },
+    {
+      "name": "Mapped workers to allocation runs can view positions",
+      "on_schema": "public",
+      "on_table": "positions",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"id\" IN ( SELECT \"func_list_allocation_run_positions\".\"position_id\"\n   FROM \"public\".\"func_list_allocation_run_positions\"("
+    },
+    {
+      "name": "Members of acl group can view details",
+      "on_schema": "public",
+      "on_table": "acl_group_worker_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"fun_check_is_acl_group_member\"(\"aclgroup\""
+    },
+    {
+      "name": "Members of acl group can view details",
+      "on_schema": "public",
+      "on_table": "acl_groups",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"fun_check_is_acl_group_member\"(\"id\""
+    },
+    {
+      "name": "Org view access",
+      "on_schema": "public",
+      "on_table": "orgs",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"id\" IN ( SELECT \"func_list_user_workers\".\"org_id\"\n   FROM \"public\".\"func_list_user_workers\"("
+    },
+    {
+      "name": "Org workers have view access",
+      "on_schema": "public",
+      "on_table": "team_tags",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"org\" IN ( SELECT \"func_list_user_workers\".\"org_id\"\n   FROM \"public\".\"func_list_user_workers\"("
+    },
+    {
+      "name": "OrgWorker edit level access",
+      "on_schema": "public",
+      "on_table": "workers",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"linkedorg\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'orgWorker.edit'::\"text\""
+    },
+    {
+      "name": "Position delete access",
+      "on_schema": "public",
+      "on_table": "positions",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", \"team\", 'position.delete'::\"text\""
+    },
+    {
+      "name": "Team members have team.view access",
+      "on_schema": "public",
+      "on_table": "team_tag_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", \"team\", 'team.view'::\"text\""
+    },
+    {
+      "name": "Test orgs can be deleted",
+      "on_schema": "public",
+      "on_table": "orgs",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "((\"auth\".\"uid\"("
+    },
+    {
+      "name": "Update permission",
+      "on_schema": "public",
+      "on_table": "teamcategories",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", \"location\", NULL::\"uuid\", NULL::\"uuid\", 'teamCategory.edit'::\"text\""
+    },
+    {
+      "name": "Update permission",
+      "on_schema": "public",
+      "on_table": "teams",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", \"teamcategory\", NULL::\"uuid\", 'team.edit'::\"text\""
+    },
+    {
+      "name": "User can update own record",
+      "on_schema": "public",
+      "on_table": "users",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "(\"id\" = \"auth\".\"uid\"("
+    },
+    {
+      "name": "User can view own record",
+      "on_schema": "public",
+      "on_table": "users",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"id\" = \"auth\".\"uid\"("
+    },
+    {
+      "name": "View access allocatorPyRun.view",
+      "on_schema": "public",
+      "on_table": "allocator_py_runs",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_run_privilege\"(\"allocation_run\", 'allocatorPyRun.view'::\"text\""
+    },
+    {
+      "name": "View access for all org members",
+      "on_schema": "public",
+      "on_table": "position_tags",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"org\" IN ( SELECT \"func_list_user_workers\".\"org_id\"\n   FROM \"public\".\"func_list_user_workers\"("
+    },
+    {
+      "name": "View access for all org memebers",
+      "on_schema": "public",
+      "on_table": "qualification_tags",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"org\" IN ( SELECT \"func_list_user_workers\".\"org_id\"\n   FROM \"public\".\"func_list_user_workers\"("
+    },
+    {
+      "name": "View access if has aclGroup.view",
+      "on_schema": "public",
+      "on_table": "acl_groups",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"org\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'aclGroup.view'::\"text\""
+    },
+    {
+      "name": "View access if they can view the associated position",
+      "on_schema": "public",
+      "on_table": "position_tag_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(EXISTS ( SELECT 1\n   FROM \"public\".\"positions\"\n  WHERE (\"positions\".\"id\" = \"position_tag_mappings\".\"position\""
+    },
+    {
+      "name": "View access level",
+      "on_schema": "public",
+      "on_table": "workers",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"linkedorg\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'orgWorker.view'::\"text\""
+    },
+    {
+      "name": "View access to worker",
+      "on_schema": "public",
+      "on_table": "job_line_worker_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "((\"worker\" IN ( SELECT \"func_list_user_workers\".\"worker_id\"\n   FROM \"public\".\"func_list_user_workers\"("
+    },
+    {
+      "name": "View access via allocationPlan.view on allocation plan",
+      "on_schema": "public",
+      "on_table": "job_lines",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_run_privilege\"(\"allocation_run\", 'allocationPlan.view'::\"text\""
+    },
+    {
+      "name": "View if has allocationPlan.view access",
+      "on_schema": "public",
+      "on_table": "worker_qualifications",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"check_is_allocation_plan_viewer_for_worker\"(\"worker\""
+    },
+    {
+      "name": "View if has location view permission",
+      "on_schema": "public",
+      "on_table": "locations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", \"id\", NULL::\"uuid\", NULL::\"uuid\", 'location.view'::\"text\""
+    },
+    {
+      "name": "View if has location view permission",
+      "on_schema": "public",
+      "on_table": "teamcategories",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "( SELECT \"func_check_has_privilege\".\"func_check_has_privilege\"\n   FROM \"public\".\"func_check_has_privilege\"(NULL::\"uuid\", \"teamcategories\".\"location\", NULL::\"uuid\", NULL::\"uuid\", 'teamCategory.view'::\"text\""
+    },
+    {
+      "name": "View if has teamCategory view permission",
+      "on_schema": "public",
+      "on_table": "teamcategories",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "( SELECT \"func_check_has_privilege\".\"func_check_has_privilege\"\n   FROM \"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", \"teamcategories\".\"id\", NULL::\"uuid\", 'teamCategory.view'::\"text\""
+    },
+    {
+      "name": "View locations",
+      "on_schema": "public",
+      "on_table": "locations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "( SELECT \"func_check_has_privilege\".\"func_check_has_privilege\"\n   FROM \"public\".\"func_check_has_privilege\"(\"locations\".\"org\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'location.view'::\"text\""
+    },
+    {
+      "name": "View team level access",
+      "on_schema": "public",
+      "on_table": "positions",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", \"team\", 'team.view'::\"text\""
+    },
+    {
+      "name": "View teams if has team category view access",
+      "on_schema": "public",
+      "on_table": "teams",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "( SELECT \"func_check_has_privilege\".\"func_check_has_privilege\"\n   FROM \"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", \"teams\".\"teamcategory\", NULL::\"uuid\", 'team.view'::\"text\""
+    },
+    {
+      "name": "View teams if has team id view access",
+      "on_schema": "public",
+      "on_table": "teams",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "( SELECT \"func_check_has_privilege\".\"func_check_has_privilege\"\n   FROM \"public\".\"func_check_has_privilege\"(NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", \"teams\".\"id\", 'team.view'::\"text\""
+    },
+    {
+      "name": "View via allocation plan",
+      "on_schema": "public",
+      "on_table": "rotations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "((\"assignedjobline\" IS NOT NULL"
+    },
+    {
+      "name": "View via allocationPlan.view access",
+      "on_schema": "public",
+      "on_table": "allocation_plan_team_tag_customisations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_allocation_plan_privilege\"(\"allocation_plan\", 'allocationPlan.view'::\"text\""
+    },
+    {
+      "name": "Worker can view own mapping if invited",
+      "on_schema": "public",
+      "on_table": "allocation_run_worker_mappings",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "((\"id\" IN ( SELECT \"func_detail_worker_allocation_mappings\".\"mapping_id\"\n   FROM \"public\".\"func_detail_worker_allocation_mappings\"("
+    },
+    {
+      "name": "Worker has view only access if locked",
+      "on_schema": "public",
+      "on_table": "preference_worker_job_lines",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(( SELECT \"allocation_run_worker_mappings\".\"worker\"\n   FROM \"public\".\"allocation_run_worker_mappings\"\n  WHERE (\"allocation_run_worker_mappings\".\"id\" = \"preference_worker_job_lines\".\"allocation_run_worker_mapping\""
+    },
+    {
+      "name": "Worker has view only access if locked",
+      "on_schema": "public",
+      "on_table": "worker_preference_customisations",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(( SELECT \"allocation_run_worker_mappings\".\"worker\"\n   FROM \"public\".\"allocation_run_worker_mappings\"\n  WHERE (\"allocation_run_worker_mappings\".\"id\" = \"worker_preference_customisations\".\"allocation_run_worker_mapping\""
+    },
+    {
+      "name": "Worker has view only access if locked",
+      "on_schema": "public",
+      "on_table": "worker_screening_rules",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(( SELECT \"allocation_run_worker_mappings\".\"worker\"\n   FROM \"public\".\"allocation_run_worker_mappings\"\n  WHERE (\"allocation_run_worker_mappings\".\"id\" = \"worker_screening_rules\".\"allocation_run_worker_mapping\""
+    },
+    {
+      "name": "Worker has view only access if locked",
+      "on_schema": "public",
+      "on_table": "worker_specialty_sentiments",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(( SELECT \"allocation_run_worker_mappings\".\"worker\"\n   FROM \"public\".\"allocation_run_worker_mappings\"\n  WHERE (\"allocation_run_worker_mappings\".\"id\" = \"worker_specialty_sentiments\".\"allocation_run_worker_mapping\""
+    },
+    {
+      "name": "Workers can update own profile",
+      "on_schema": "public",
+      "on_table": "workers",
+      "action": "UPDATE",
+      "role": "authenticated",
+      "condition": "(\"linkeduser\" = \"auth\".\"uid\"("
+    },
+    {
+      "name": "Workers can view own mappings",
+      "on_schema": "public",
+      "on_table": "worker_qualifications",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"worker\" IN ( SELECT \"func_list_user_workers\".\"worker_id\"\n   FROM \"public\".\"func_list_user_workers\"("
+    },
+    {
+      "name": "Workers can view own profile",
+      "on_schema": "public",
+      "on_table": "workers",
+      "action": "SELECT",
+      "role": "authenticated",
+      "condition": "(\"linkeduser\" = \"auth\".\"uid\"("
+    },
+    {
+      "name": "location.delete permission",
+      "on_schema": "public",
+      "on_table": "locations",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(NULL::\"uuid\", \"id\", NULL::\"uuid\", NULL::\"uuid\", 'location.delete'::\"text\""
+    },
+    {
+      "name": "qualificationTag.delete access",
+      "on_schema": "public",
+      "on_table": "qualification_tags",
+      "action": "DELETE",
+      "role": "authenticated",
+      "condition": "\"public\".\"func_check_has_privilege\"(\"org\", NULL::\"uuid\", NULL::\"uuid\", NULL::\"uuid\", 'qualificationTag.delete'::\"text\""
+    }
+  ],
+  "foreign_keys": [
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_mappings",
+      "source_col": "acl_group",
+      "target_schema": "public",
+      "target_table": "acl_groups",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_mappings",
+      "source_col": "allocationplan",
+      "target_schema": "public",
+      "target_table": "allocationplans",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_mappings",
+      "source_col": "location",
+      "target_schema": "public",
+      "target_table": "locations",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_mappings",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_mappings",
+      "source_col": "team",
+      "target_schema": "public",
+      "target_table": "teams",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_mappings",
+      "source_col": "teamcategory",
+      "target_schema": "public",
+      "target_table": "teamcategories",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_right_mappings",
+      "source_col": "acl_group",
+      "target_schema": "public",
+      "target_table": "acl_groups",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_right_mappings",
+      "source_col": "acl_right",
+      "target_schema": "public",
+      "target_table": "acl_rights",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_worker_mappings",
+      "source_col": "aclgroup",
+      "target_schema": "public",
+      "target_table": "acl_groups",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_group_worker_mappings",
+      "source_col": "worker",
+      "target_schema": "public",
+      "target_table": "workers",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "acl_groups",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_plan_position_mappings",
+      "source_col": "allocationplan",
+      "target_schema": "public",
+      "target_table": "allocationplans",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_plan_position_mappings",
+      "source_col": "position",
+      "target_schema": "public",
+      "target_table": "positions",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_plan_team_tag_customisations",
+      "source_col": "allocation_plan",
+      "target_schema": "public",
+      "target_table": "allocationplans",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_plan_team_tag_customisations",
+      "source_col": "team_tag",
+      "target_schema": "public",
+      "target_table": "team_tags",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_run_preferencer_weightings",
+      "source_col": "allocation_run",
+      "target_schema": "public",
+      "target_table": "allocationruns",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_run_preferencer_weightings",
+      "source_col": "job_line",
+      "target_schema": "public",
+      "target_table": "job_lines",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_run_worker_mappings",
+      "source_col": "allocation_run",
+      "target_schema": "public",
+      "target_table": "allocationruns",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocation_run_worker_mappings",
+      "source_col": "worker",
+      "target_schema": "public",
+      "target_table": "workers",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocationplans",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocationruns",
+      "source_col": "allocationplan",
+      "target_schema": "public",
+      "target_table": "allocationplans",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocator_py_allocations",
+      "source_col": "allocator_py_run",
+      "target_schema": "public",
+      "target_table": "allocator_py_runs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocator_py_allocations",
+      "source_col": "job_line",
+      "target_schema": "public",
+      "target_table": "job_lines",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocator_py_allocations",
+      "source_col": "worker_mapping",
+      "target_schema": "public",
+      "target_table": "allocation_run_worker_mappings",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "allocator_py_runs",
+      "source_col": "allocation_run",
+      "target_schema": "public",
+      "target_table": "allocationruns",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "job_line_eligibility",
+      "source_col": "job_line",
+      "target_schema": "public",
+      "target_table": "job_lines",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "job_line_worker_mappings",
+      "source_col": "allocation_run_worker_mapping",
+      "target_schema": "public",
+      "target_table": "allocation_run_worker_mappings",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "job_line_worker_mappings",
+      "source_col": "job_line",
+      "target_schema": "public",
+      "target_table": "job_lines",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "job_line_worker_mappings",
+      "source_col": "worker",
+      "target_schema": "public",
+      "target_table": "workers",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "job_lines",
+      "source_col": "allocation_run",
+      "target_schema": "public",
+      "target_table": "allocationruns",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "locations",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "orggroups",
+      "source_col": "location",
+      "target_schema": "public",
+      "target_table": "locations",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "orggroups",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "orggroups",
+      "source_col": "team",
+      "target_schema": "public",
+      "target_table": "teams",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "orggroups",
+      "source_col": "teamcategory",
+      "target_schema": "public",
+      "target_table": "teamcategories",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "positions",
+      "source_col": "team",
+      "target_schema": "public",
+      "target_table": "teams",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "preference_worker_job_lines",
+      "source_col": "allocation_run_worker_mapping",
+      "target_schema": "public",
+      "target_table": "allocation_run_worker_mappings",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "preference_worker_job_lines",
+      "source_col": "job_line",
+      "target_schema": "public",
+      "target_table": "job_lines",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "preference_worker_rotations",
+      "source_col": "allocation_run_worker_mapping",
+      "target_schema": "public",
+      "target_table": "allocation_run_worker_mappings",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "preference_worker_rotations",
+      "source_col": "rotation",
+      "target_schema": "public",
+      "target_table": "rotations",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "position_tag_mappings",
+      "source_col": "position",
+      "target_schema": "public",
+      "target_table": "positions",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "position_tag_mappings",
+      "source_col": "position_tag",
+      "target_schema": "public",
+      "target_table": "position_tags",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "position_tags",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "qualification_tags",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "rotations",
+      "source_col": "allocation_run",
+      "target_schema": "public",
+      "target_table": "allocationruns",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "rotations",
+      "source_col": "assignedjobline",
+      "target_schema": "public",
+      "target_table": "job_lines",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "rotations",
+      "source_col": "position",
+      "target_schema": "public",
+      "target_table": "positions",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "team_tag_mappings",
+      "source_col": "team",
+      "target_schema": "public",
+      "target_table": "teams",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "team_tag_mappings",
+      "source_col": "team_tag",
+      "target_schema": "public",
+      "target_table": "team_tags",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "team_tags",
+      "source_col": "org",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "teamcategories",
+      "source_col": "location",
+      "target_schema": "public",
+      "target_table": "locations",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "teams",
+      "source_col": "teamcategory",
+      "target_schema": "public",
+      "target_table": "teamcategories",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_preference_customisations",
+      "source_col": "location",
+      "target_schema": "public",
+      "target_table": "locations",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_preference_customisations",
+      "source_col": "allocation_run_worker_mapping",
+      "target_schema": "public",
+      "target_table": "allocation_run_worker_mappings",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_preference_customisations",
+      "source_col": "position_tag",
+      "target_schema": "public",
+      "target_table": "position_tags",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_preference_customisations",
+      "source_col": "team_tag",
+      "target_schema": "public",
+      "target_table": "team_tags",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_qualifications",
+      "source_col": "qualification_tag",
+      "target_schema": "public",
+      "target_table": "qualification_tags",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_qualifications",
+      "source_col": "worker",
+      "target_schema": "public",
+      "target_table": "workers",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_screening_rules",
+      "source_col": "allocation_run_worker_mapping",
+      "target_schema": "public",
+      "target_table": "allocation_run_worker_mappings",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_specialty_sentiments",
+      "source_col": "allocation_run_worker_mapping",
+      "target_schema": "public",
+      "target_table": "allocation_run_worker_mappings",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "worker_specialty_sentiments",
+      "source_col": "team_tag",
+      "target_schema": "public",
+      "target_table": "team_tags",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workergroupmappings",
+      "source_col": "group",
+      "target_schema": "public",
+      "target_table": "orggroups",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workergroupmappings",
+      "source_col": "worker",
+      "target_schema": "public",
+      "target_table": "workers",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workers",
+      "source_col": "browsing_currentallocationplan",
+      "target_schema": "public",
+      "target_table": "allocationplans",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workers",
+      "source_col": "browsing_currentallocationrun",
+      "target_schema": "public",
+      "target_table": "allocationruns",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workers",
+      "source_col": "browsing_currentlocation",
+      "target_schema": "public",
+      "target_table": "locations",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workers",
+      "source_col": "browsing_currentteam",
+      "target_schema": "public",
+      "target_table": "teams",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workers",
+      "source_col": "browsing_currentteamcategory",
+      "target_schema": "public",
+      "target_table": "teamcategories",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workers",
+      "source_col": "linkedorg",
+      "target_schema": "public",
+      "target_table": "orgs",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "public",
+      "source_table": "workers",
+      "source_col": "linkeduser",
+      "target_schema": "public",
+      "target_table": "users",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "secure",
+      "source_table": "auth_codes",
+      "source_col": "user_id",
+      "target_schema": "auth",
+      "target_table": "users",
+      "target_col": "id"
+    },
+    {
+      "source_schema": "secure",
+      "source_table": "worker_invites",
+      "source_col": "worker",
+      "target_schema": "public",
+      "target_table": "workers",
+      "target_col": "id"
+    }
+  ]
+}

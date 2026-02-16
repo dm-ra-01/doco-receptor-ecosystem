@@ -51,8 +51,8 @@ The following tables represent the core business logic.
 | `workers` | Medical workers/JMOs participating in rotations. | [Active](./rls-policies) |
 | `orgs` | Healthcare organizations/hospitals. | [Active](./rls-policies) |
 | `teams` | Clinical teams or departments within an organization. | [Active](./rls-policies) |
-| `rotations` | Defined periods of work rotations. | [Active](./rls-policies) |
-| `positions` | Specific job roles or placements. | [Active](./rls-policies) |
+| `rotations` | Defined periods of work rotations (with optional FTE override). | [Active](./rls-policies) |
+| `positions` | Specific job roles or placements (with default FTE). | [Active](./rls-policies) |
 | `preference_worker_job_lines` | Worker preferences for specific job lines. | [Active](./rls-policies) |
 | `worker_specialty_sentiments` | Phase 1 sentiment analysis per mapping. | [Active](./rls-policies) |
 | `worker_preference_customisations` | Positive/Negative constraints (Whitelists/Blacklists). | [Active](./rls-policies) |

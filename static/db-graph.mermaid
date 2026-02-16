@@ -1,0 +1,443 @@
+erDiagram
+    messages_email_templates {
+        timestamp_with_time_zone created_at
+        text unique_name
+        text html_body
+        text text_body
+        text subject
+    }
+    messages_emails {
+        uuid id
+        timestamp_with_time_zone created_at
+        text recipient
+        text sender
+        text cc
+        text bcc
+        text subject
+        text text_body
+        text html_body
+        text status
+        jsonb log
+    }
+    public_acl_group_mappings {
+        uuid id
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid org
+        uuid location
+        uuid teamcategory
+        uuid team
+        uuid acl_group
+        uuid allocationplan
+    }
+    public_acl_group_right_mappings {
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid acl_group
+        text acl_right
+    }
+    public_acl_group_worker_mappings {
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid worker
+        uuid aclgroup
+    }
+    public_acl_groups {
+        uuid id
+        text name
+        text description
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid org
+    }
+    public_acl_rights {
+        text id
+        timestamp_with_time_zone created_at
+    }
+    public_allocation_plan_position_mappings {
+        uuid id
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        timestamp_with_time_zone startdate
+        timestamp_with_time_zone enddate
+        uuid position
+        uuid allocationplan
+    }
+    public_allocation_plan_team_tag_customisations {
+        uuid allocation_plan
+        uuid team_tag
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        bigint rotation_color
+    }
+    public_allocation_run_preferencer_weightings {
+        uuid job_line
+        timestamp_with_time_zone created_at
+        uuid allocation_run
+        uuid id
+        uuid qualification_tag_ids
+        smallint weighting
+        uuid worker_mapping_ids
+    }
+    public_allocation_run_worker_mappings {
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid worker
+        uuid allocation_run
+        uuid id
+        boolean locked
+        boolean submitted
+        timestamp_with_time_zone invited_at
+        text withdrawal_reason
+        timestamp_with_time_zone withdrawn_at
+        timestamp_with_time_zone withdrawal_effective_at
+    }
+    public_allocationplans {
+        uuid id
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        text name
+        uuid org
+        text timezone
+        smallint default_term_length_weeks
+    }
+    public_allocationruns {
+        uuid id
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        timestamp_with_time_zone startdate
+        timestamp_with_time_zone enddate
+        uuid allocationplan
+        text status
+        timestamp_with_time_zone due_date
+    }
+    public_allocator_py_allocations {
+        timestamp_with_time_zone created_at
+        uuid job_line
+        real original_preference
+        uuid allocator_py_run
+        uuid worker_mapping
+    }
+    public_allocator_py_runs {
+        uuid id
+        timestamp_with_time_zone created_at
+        uuid allocation_run
+        timestamp_with_time_zone completed_at
+        timestamp_with_time_zone queued_at
+        boolean is_exclusive
+        uuid included_job_lines
+        uuid included_worker_mappings
+    }
+    public_job_line_eligibility {
+        uuid job_line
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid included_qualification_tag_ids
+        uuid excluded_qualification_tag_ids
+        uuid included_worker_mapping_ids
+        uuid excluded_worker_mapping_ids
+    }
+    public_job_line_worker_mappings {
+        uuid id
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        timestamp_with_time_zone start_date
+        timestamp_with_time_zone end_date
+        uuid job_line
+        uuid worker
+        integer preference_number
+        uuid allocation_run_worker_mapping
+        timestamp_with_time_zone finalised_at
+        timestamp_with_time_zone released_at
+        real fte
+        timestamp_with_time_zone emailed_at
+        timestamp_with_time_zone locked_at
+    }
+    public_job_lines {
+        uuid id
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        text name
+        smallint sort_order
+        uuid allocation_run
+    }
+    public_locations {
+        uuid id
+        text name
+        text address
+        text timezone
+        text googleplaceid
+        text coordinates
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid org
+    }
+    public_orggroups {
+        uuid id
+        text name
+        text description
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid org
+        uuid location
+        uuid teamcategory
+        uuid team
+    }
+    public_orgs {
+        uuid id
+        text name
+        text domain
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        text defaulttimezone
+    }
+    public_position_tag_mappings {
+        uuid position
+        uuid position_tag
+        timestamp_with_time_zone created_at
+    }
+    public_position_tags {
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        text name
+        uuid org
+        text description
+        uuid id
+    }
+    public_positions {
+        uuid id
+        text name
+        text internalid
+        text displayname
+        text costcentre
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid team
+        bigint color_override
+        numeric fte
+    }
+    public_preference_worker_job_lines {
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        integer order_preference
+        text like_dislike_preference_old
+        uuid allocation_run_worker_mapping
+        uuid job_line
+        smallint like_dislike_preference
+        double attractiveness_score
+        text notes
+    }
+    public_preference_worker_rotations {
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid allocation_run_worker_mapping
+        uuid rotation
+        smallint like_dislike_preference
+        text notes
+    }
+    public_qualification_tags {
+        uuid id
+        text name
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid org
+    }
+    public_rotations {
+        uuid id
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        timestamp_with_time_zone startdate
+        timestamp_with_time_zone enddate
+        bigint color_override
+        uuid position
+        uuid assignedjobline
+        text nameoverride
+        uuid allocation_run
+        numeric fte
+    }
+    public_team_tag_mappings {
+        timestamp_with_time_zone created_at
+        uuid team_tag
+        uuid team
+    }
+    public_team_tags {
+        uuid id
+        timestamp_with_time_zone created_at
+        text name
+        uuid org
+    }
+    public_teamcategories {
+        uuid id
+        text name
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid location
+    }
+    public_teams {
+        uuid id
+        text name
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid teamcategory
+    }
+    public_users {
+        uuid id
+        text name
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid browsing_currentorg
+        boolean dark_mode
+        boolean isadmin
+        text first_name
+        text last_name
+        timestamp_with_time_zone confirmed_at
+    }
+    public_worker_specialty_sentiments {
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid allocation_run_worker_mapping
+        uuid team_tag
+        smallint sentiment_value
+    }
+    public_worker_preference_customisations {
+        uuid id
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid allocation_run_worker_mapping
+        uuid location
+        uuid team_tag
+        uuid position_tag
+        text override_type
+        double score_modifier
+    }
+    public_worker_qualifications {
+        uuid worker
+        timestamp_with_time_zone start_date
+        timestamp_with_time_zone end_date
+        timestamp_with_time_zone created_at
+        uuid qualification_tag
+        timestamp_with_time_zone updated_at
+        uuid id
+    }
+    public_worker_screening_rules {
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone updated_at
+        uuid allocation_run_worker_mapping
+        text rule_type
+        jsonb rule_data
+    }
+    public_workergroupmappings {
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        uuid worker
+        uuid group
+    }
+    public_workers {
+        uuid id
+        timestamp_with_time_zone createdat
+        timestamp_with_time_zone updatedat
+        text firstname
+        text lastname
+        uuid browsing_currentlocation
+        uuid browsing_currentteam
+        uuid browsing_currentteamcategory
+        text email
+        text telmain
+        text preferencecomment
+        text avatarurl
+        text qualificationlevel
+        uuid linkedorg
+        uuid linkeduser
+        uuid browsing_currentallocationplan
+        uuid browsing_currentallocationrun
+        text internal_id
+        timestamp_with_time_zone invited_at
+        text preferred_name
+    }
+    secure_auth_codes {
+        text code
+        uuid user_id
+        text refresh_token
+        timestamp_with_time_zone created_at
+        timestamp_with_time_zone expires_at
+        jsonb metadata
+    }
+    secure_worker_invites {
+        timestamp_with_time_zone created_at
+        uuid worker
+        uuid invite_code
+        timestamp_with_time_zone claimed_at
+        timestamp_with_time_zone expires_at
+    }
+    public_acl_group_mappings ||--o{ public_acl_groups : "acl_group->id"
+    public_acl_group_mappings ||--o{ public_allocationplans : "allocationplan->id"
+    public_acl_group_mappings ||--o{ public_locations : "location->id"
+    public_acl_group_mappings ||--o{ public_orgs : "org->id"
+    public_acl_group_mappings ||--o{ public_teams : "team->id"
+    public_acl_group_mappings ||--o{ public_teamcategories : "teamcategory->id"
+    public_acl_group_right_mappings ||--o{ public_acl_groups : "acl_group->id"
+    public_acl_group_right_mappings ||--o{ public_acl_rights : "acl_right->id"
+    public_acl_group_worker_mappings ||--o{ public_acl_groups : "aclgroup->id"
+    public_acl_group_worker_mappings ||--o{ public_workers : "worker->id"
+    public_acl_groups ||--o{ public_orgs : "org->id"
+    public_allocation_plan_position_mappings ||--o{ public_allocationplans : "allocationplan->id"
+    public_allocation_plan_position_mappings ||--o{ public_positions : "position->id"
+    public_allocation_plan_team_tag_customisations ||--o{ public_allocationplans : "allocation_plan->id"
+    public_allocation_plan_team_tag_customisations ||--o{ public_team_tags : "team_tag->id"
+    public_allocation_run_preferencer_weightings ||--o{ public_allocationruns : "allocation_run->id"
+    public_allocation_run_preferencer_weightings ||--o{ public_job_lines : "job_line->id"
+    public_allocation_run_worker_mappings ||--o{ public_allocationruns : "allocation_run->id"
+    public_allocation_run_worker_mappings ||--o{ public_workers : "worker->id"
+    public_allocationplans ||--o{ public_orgs : "org->id"
+    public_allocationruns ||--o{ public_allocationplans : "allocationplan->id"
+    public_allocator_py_allocations ||--o{ public_allocator_py_runs : "allocator_py_run->id"
+    public_allocator_py_allocations ||--o{ public_job_lines : "job_line->id"
+    public_allocator_py_allocations ||--o{ public_allocation_run_worker_mappings : "worker_mapping->id"
+    public_allocator_py_runs ||--o{ public_allocationruns : "allocation_run->id"
+    public_job_line_eligibility ||--o{ public_job_lines : "job_line->id"
+    public_job_line_worker_mappings ||--o{ public_allocation_run_worker_mappings : "allocation_run_worker_mapping->id"
+    public_job_line_worker_mappings ||--o{ public_job_lines : "job_line->id"
+    public_job_line_worker_mappings ||--o{ public_workers : "worker->id"
+    public_job_lines ||--o{ public_allocationruns : "allocation_run->id"
+    public_locations ||--o{ public_orgs : "org->id"
+    public_orggroups ||--o{ public_locations : "location->id"
+    public_orggroups ||--o{ public_orgs : "org->id"
+    public_orggroups ||--o{ public_teams : "team->id"
+    public_orggroups ||--o{ public_teamcategories : "teamcategory->id"
+    public_positions ||--o{ public_teams : "team->id"
+    public_preference_worker_job_lines ||--o{ public_allocation_run_worker_mappings : "allocation_run_worker_mapping->id"
+    public_preference_worker_job_lines ||--o{ public_job_lines : "job_line->id"
+    public_preference_worker_rotations ||--o{ public_allocation_run_worker_mappings : "allocation_run_worker_mapping->id"
+    public_preference_worker_rotations ||--o{ public_rotations : "rotation->id"
+    public_position_tag_mappings ||--o{ public_positions : "position->id"
+    public_position_tag_mappings ||--o{ public_position_tags : "position_tag->id"
+    public_position_tags ||--o{ public_orgs : "org->id"
+    public_qualification_tags ||--o{ public_orgs : "org->id"
+    public_rotations ||--o{ public_allocationruns : "allocation_run->id"
+    public_rotations ||--o{ public_job_lines : "assignedjobline->id"
+    public_rotations ||--o{ public_positions : "position->id"
+    public_team_tag_mappings ||--o{ public_teams : "team->id"
+    public_team_tag_mappings ||--o{ public_team_tags : "team_tag->id"
+    public_team_tags ||--o{ public_orgs : "org->id"
+    public_teamcategories ||--o{ public_locations : "location->id"
+    public_teams ||--o{ public_teamcategories : "teamcategory->id"
+    public_worker_preference_customisations ||--o{ public_locations : "location->id"
+    public_worker_preference_customisations ||--o{ public_allocation_run_worker_mappings : "allocation_run_worker_mapping->id"
+    public_worker_preference_customisations ||--o{ public_position_tags : "position_tag->id"
+    public_worker_preference_customisations ||--o{ public_team_tags : "team_tag->id"
+    public_worker_qualifications ||--o{ public_qualification_tags : "qualification_tag->id"
+    public_worker_qualifications ||--o{ public_workers : "worker->id"
+    public_worker_screening_rules ||--o{ public_allocation_run_worker_mappings : "allocation_run_worker_mapping->id"
+    public_worker_specialty_sentiments ||--o{ public_allocation_run_worker_mappings : "allocation_run_worker_mapping->id"
+    public_worker_specialty_sentiments ||--o{ public_team_tags : "team_tag->id"
+    public_workergroupmappings ||--o{ public_orggroups : "group->id"
+    public_workergroupmappings ||--o{ public_workers : "worker->id"
+    public_workers ||--o{ public_allocationplans : "browsing_currentallocationplan->id"
+    public_workers ||--o{ public_allocationruns : "browsing_currentallocationrun->id"
+    public_workers ||--o{ public_locations : "browsing_currentlocation->id"
+    public_workers ||--o{ public_teams : "browsing_currentteam->id"
+    public_workers ||--o{ public_teamcategories : "browsing_currentteamcategory->id"
+    public_workers ||--o{ public_orgs : "linkedorg->id"
+    public_workers ||--o{ public_users : "linkeduser->id"
+    secure_auth_codes ||--o{ auth_users : "user_id->id"
+    secure_worker_invites ||--o{ public_workers : "worker->id"
