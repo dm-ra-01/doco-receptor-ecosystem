@@ -10,9 +10,9 @@ Establish a centralized, robust, and automated CI/CD pipeline across the Recepto
 
 | Component | Status | Notes |
 |:----------|:-------|:------|
-| Foundational CI | 🟡 In Progress | Basic research completed; roadmap established. |
+| Foundational CI | 🟢 Active | Planner-Frontend CI pipeline active with Vitest/Coverage/RLS gating. |
 | Deployment Parity | 🔴 Not Started | |
-| Advanced Verification| 🔴 Not Started | |
+| Advanced Verification| 🟡 In Progress | Visual regression (Playwright snapshots) and security bench marking. |
 
 ---
 
@@ -27,12 +27,12 @@ Focus on stabilizing the core development flow and preventing regressions.
 
 ### 2. Backend (Supabase)
 - [ ] **DB Linting**: Run `supabase db lint` in CI for all PRs affecting `supabase-receptor/`.
-- [ ] **Automated Migrations**: Verify SQL migrations against a transient Supabase container.
-- [ ] **RLS Verification**: Execute security benchmark tests on every PR.
+- [x] **Automated Migrations**: Verified via ephemeral Supabase container in Frontend CI.
+- [x] **RLS Verification**: Execute security benchmark tests (Vitest) on every PR.
 
 ### 3. Frontend Quality
 - [ ] **Linter & Type Consistency**: Enforce `npm run lint` and `tsc --noEmit` across all React frontends.
-- [ ] **Core Unit Testing**: Automate Vitest execution for `planner-frontend` and `preference-frontend`.
+- [x] **Core Unit Testing**: Automate Vitest execution for `planner-frontend` (pending `preference-frontend`).
 
 ---
 
@@ -68,8 +68,10 @@ Implement industry-leading quality and security controls.
 
 | Task ID | Category | Status | Evidence/Artifact |
 |:--------|:---------|:-------|:------------------|
-| CICD-001| Research | ✅ Complete | [cicd_report.md](../../../../.gemini/antigravity/brain/1fbee009-3dee-47bf-acc3-0e912685df7e/cicd_report.md) |
+| CICD-001| Research | ✅ Complete | [audit-2026-02-16.md](../infrastructure/operations/audit-2026-02-16) |
 | CICD-002| Roadmap | ✅ Complete | [This Document](#) |
+| CICD-005| Frontend CI | ✅ Complete | [GitHub / workflows / codecov.yml](https://github.com/dm-ra-01/planner-frontend/blob/main/.github/workflows/codecov.yml) |
+| CICD-006| RLS Security | ✅ Complete | [GitHub / src / test / security / RLS.test.ts](https://github.com/dm-ra-01/planner-frontend/blob/main/src/test/security/RLS.test.ts) |
 | CICD-003| Root CI | 🔴 Not Started | |
 | CICD-004| DB Lint | 🔴 Not Started | |
 
@@ -79,4 +81,4 @@ Implement industry-leading quality and security controls.
 
 - [Infrastructure Operations](../infrastructure/operations/ci-cd)
 - [Testing Guide](../infrastructure/operations/testing-guide)
-- [Supabase Setup](../../../../supabase-receptor/README.md)
+- [Supabase Setup (GitHub)](https://github.com/dm-ra-01/supabase-receptor/blob/main/README.md)
