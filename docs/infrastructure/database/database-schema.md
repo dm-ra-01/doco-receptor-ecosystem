@@ -61,6 +61,19 @@ The following tables represent the core business logic.
 | `qualification_tags` | Tags for worker qualifications. | [Active](./rls-policies) |
 | `position_tags` | Tags for position requirements. | Pending |
 
+### users
+
+Stores user profiles and authentication metadata, linked to Supabase Auth.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | uuid | Primary key (links to `auth.users.id`) |
+| `email` | text | Unique user email |
+| `isadmin` | boolean | Flag for global platform administrator rights |
+| `linkedorg` | uuid | Primary organization associated with this user |
+| `created_at` | timestamptz | Creation timestamp |
+| `updated_at` | timestamptz | Last update timestamp |
+
 ### qualification_tags
 
 Stores qualification tags that can be assigned to workers (e.g., certifications, specializations).
