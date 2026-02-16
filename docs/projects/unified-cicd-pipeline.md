@@ -6,79 +6,86 @@ sidebar_position: 25
 
 Establish a centralized, robust, and automated CI/CD pipeline across the Receptor monorepo to ensure software quality, security, and velocity.
 
-## Project Status
+## High-Level Roadmap
 
-| Component | Status | Notes |
-|:----------|:-------|:------|
-| Foundational CI | 🟢 Active | Planner-Frontend CI pipeline active with Vitest/Coverage/RLS gating. |
-| Deployment Parity | 🔴 Not Started | |
-| Advanced Verification| 🟡 In Progress | Visual regression (Playwright snapshots) and security bench marking. |
-
----
-
-## Phase 1: Foundational PR Gates (Short Term)
-
-Focus on stabilizing the core development flow and preventing regressions.
-
-### 1. Monorepo Orchestration
-- [ ] **Root Workflow**: Implement root `.github/workflows/ci.yml` using conditional path filtering.
-  - *Evidence*: [Placeholder for CI link]
-- [ ] **Dependency Management**: Integrate automated dependency checking for Next.js submodules.
-
-### 2. Backend (Supabase)
-- [ ] **DB Linting**: Run `supabase db lint` in CI for all PRs affecting `supabase-receptor/`.
-- [x] **Automated Migrations**: Verified via ephemeral Supabase container in Frontend CI.
-- [x] **RLS Verification**: Execute security benchmark tests (Vitest) on every PR.
-
-### 3. Frontend Quality
-- [ ] **Linter & Type Consistency**: Enforce `npm run lint` and `tsc --noEmit` across all React frontends.
-- [x] **Core Unit Testing**: Automate Vitest execution for `planner-frontend` (pending `preference-frontend`).
+| Phase | Focus | Status |
+| :--- | :--- | :--- |
+| **Phase 1: Foundation** | PR Gates: Linting, Unit Tests, RLS Security | 🟡 In Progress |
+| **Phase 2: Parity** | Integrated E2E, Deployment Previews, Doc Sync | 🔴 Not Started |
+| **Phase 3: Advanced** | Performance Budgets, SAST/DAST, Visual Regressions | 🔴 Not Started |
 
 ---
 
-## Phase 2: Deployment & Environment Parity (Medium Term)
+## 1. Monorepo Orchestration (Global)
 
-Ensure that what works locally also works in staging and production.
+Centralized management of the monorepo lifecycle.
 
-### 1. Environment Management
-- [ ] **GitHub Secrets Audit**: Transition secrets from local `.env` to GitHub Environments.
-- [ ] **Preview Deployments**: Enable Cloudflare Pages previews for all frontend pull requests.
-
-### 2. Workflow Integration
-- [ ] **Automated Doc Sync**: Workflow to run `npm run gen-graph` and push metadata updates back to `main`.
-- [ ] **Knowledge Graph Enforcement**: Ensure all PRs pass a knowledge graph consistency check.
+- [ ] **Root Workflow**: Implement `.github/workflows/ci.yml` at the environment root.
+  - Path-based filtering (using `actions/labeler` or `dorny/paths-filter`).
+  - Cross-repo dependency triggers.
+- [ ] **Unified Status Dashboard**: A single GitHub Action view showing health across all submodules.
+- [ ] **Automated Doc Sync**: Enforce `npm run gen-graph` across documentation submodules on every infrastructure change.
 
 ---
 
-## Phase 3: Advanced Verification (Long Term)
+## 2. Per-Application CI/CD Status
 
-Implement industry-leading quality and security controls.
+### 🗄️ Supabase Backend (`supabase-receptor`)
+- **Primary Goal**: Automated schema validation and RLS enforcement.
+- [x] **Automated Migrations**: Verification via ephemeral containers (active in Frontend CI).
+- [x] **RLS Verification**: SQL-based security benchmarks (active in Frontend CI).
+- [ ] **DB Linting**: Integrate `supabase db lint` into server-side PR gates.
+- [ ] **Seed Integrity**: Automated verification of the Acacia dataset consistency.
 
-### 1. Security & Compliance
-- [ ] **SAST/DAST**: Integrate Snyk or CodeQL for static analysis.
-- [ ] **Secret Scanning**: Prevent accidental commit of credentials.
+### ⚙️ Match Backend (`match-backend`)
+- **Primary Goal**: Algorithm correctness and optimization performance tracking.
+- [ ] **Algorithm Regression**: Run solver consistency tests on every core physics change.
+- [ ] **Performance Benchmarking**: Track solver time/memory usage relative to baseline datasets.
+- [ ] **Containerization**: Automated Docker build and push to registry on merge to main.
 
-### 2. Performance & UI Reliability
-- [ ] **Visual Regression**: promote Playwright snapshots to CI gates.
-- [ ] **Lighthouse CI**: Enforce performance budgets for the public website and core apps.
+### 🗓️ Planner Frontend (`planner-frontend`)
+- **Primary Goal**: Reliability of complex workforce planning UI.
+- [x] **Unit & Integration**: Vitest suite with high coverage requirements.
+- [x] **RLS Security Gating**: Integrated security tests using `test-utils.ts`.
+- [ ] **Deployment Previews**: Automatic Cloudflare Pages previews for every PR.
+- [ ] **Visual Regression**: Playwright snapshot testing for complex planning matrices.
+
+### 🙋 Preference Frontend (`preference-frontend`)
+- **Primary Goal**: Mobile/Web accessibility and worker submission reliability.
+- [ ] **Accessibility (A11y) Gates**: Enforce `axe-core` checks in CI to ensure WCAG compliance.
+- [ ] **Mobile Simulation**: Automated Playwright tests across multiple viewport sizes.
+- [ ] **Unit Testing**: Port existing manual test suite to automated CI runners.
+
+### 👥 Workforce Frontend (`workforce-frontend`)
+- **Primary Goal**: Data integrity for organizational master data.
+- [ ] **Form Validation Audit**: Automated testing of complex organizational hierarchy inputs.
+- [ ] **CRUD Integration**: E2E tests verifying data propagation from Frontend to Supabase.
+
+### 🎨 Design Frontend (`design-frontend`)
+- **Primary Goal**: Component library consistency and visual standards.
+- [ ] **Component Documentation**: Automated build/deploy of the Storybook/Registry.
+- [ ] **Visual Regression**: Baseline snapshots for every core UI component.
+- [ ] **Package Publishing**: Automated versioning and publishing to internal registry.
+
+### 🌐 Website Frontend (`website-frontend`)
+- **Primary Goal**: SEO, Performance, and Marketing conversion.
+- [ ] **SEO Auditing**: Automated Meta-tag and Heading hierarchy checks.
+- [ ] **Lighthouse CI**: Enforce Performance (90+), SEO, and Best Practice scores.
+- [ ] **Automated Deployment**: Direct deployment to Cloudflare production on `main` merge.
 
 ---
 
 ## Task Completion Tracking
 
-| Task ID | Category | Status | Evidence/Artifact |
-|:--------|:---------|:-------|:------------------|
-| CICD-001| Research | ✅ Complete | [audit-2026-02-16.md](../infrastructure/operations/audit-2026-02-16) |
-| CICD-002| Roadmap | ✅ Complete | [This Document](#) |
-| CICD-005| Frontend CI | ✅ Complete | [GitHub / workflows / codecov.yml](https://github.com/dm-ra-01/planner-frontend/blob/main/.github/workflows/codecov.yml) |
-| CICD-006| RLS Security | ✅ Complete | [GitHub / src / test / security / RLS.test.ts](https://github.com/dm-ra-01/planner-frontend/blob/main/src/test/security/RLS.test.ts) |
-| CICD-003| Root CI | 🔴 Not Started | |
-| CICD-004| DB Lint | 🔴 Not Started | |
+| Task ID | Category | App | Status | Evidence/Artifact |
+|:--------|:---------|:----|:-------|:------------------|
+| CICD-001| Research | Global | ✅ | [audit-2026-02-16.md](../infrastructure/operations/audit-2026-02-16) |
+| CICD-005| Unit Tests| Planner| ✅ | [Codecov Workflow](https://github.com/dm-ra-01/planner-frontend/blob/main/.github/workflows/codecov.yml) |
+| CICD-006| Security | Supabase| ✅ | [RLS Test Suite](https://github.com/dm-ra-01/planner-frontend/blob/main/src/test/security/RLS.test.ts) |
 
 ---
 
 ## Reference Documentation
-
 - [Infrastructure Operations](../infrastructure/operations/ci-cd)
 - [Testing Guide](../infrastructure/operations/testing-guide)
-- [Supabase Setup (GitHub)](https://github.com/dm-ra-01/supabase-receptor/blob/main/README.md)
+- [Audit Report (Feb 16)](../infrastructure/operations/audit-2026-02-16)
