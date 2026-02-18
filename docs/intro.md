@@ -16,6 +16,7 @@ Receptor is more than just an app; it's a comprehensive infrastructure designed 
 We leverage a world-class technology stack to ensure security and scalability:
 - [Next.js + Supabase Architecture](platform/architecture) — System design, data flows, and service topology
 - [Security & RLS Policies](platform/security) — Role-based access and row-level security
+- [Receptor Ecosystem Standards](platform/ecosystem-standards) — Methodology, quality gates, and TDD workflows
 - [User-Centric Onboarding](platform/onboarding) — Frictionless activation flow
 
 ### Core Applications
