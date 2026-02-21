@@ -31,3 +31,14 @@ In healthcare, data leaks are often catastrophic. Start with **Restrictive RLS b
 
 ## Authentication Flow
 Receptor uses OAuth2 and Magic Links through Supabase Auth, streamlining the onboarding process for healthcare workers who may not have traditional corporate credentials.
+
+## 🛡️ Abuse Scenarios (Success Logic)
+
+To verify our security posture, we track **Abuser Stories** alongside technical requirements. These scenarios define the boundaries of our security enforcement.
+
+| Scenario ID | Description | Primary Enforcement Mechanism |
+|:---|:---|:---|
+| **[AB-01](../user-stories/preference-frontend/index.md#ab-01-illegal-preference-modification)** | Attempted preference update via stolen API key | `preferences` RLS Policy |
+| **AB-02** | Cross-Organization data exfiltration | `org_id` isolation predicates in SQL Views and RLS |
+
+Verification of these scenarios is integrated into our **Security TDD** workflow.

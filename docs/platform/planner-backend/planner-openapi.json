@@ -1,0 +1,282 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Receptor Planner API",
+    "description": "Synchronous API for generating optimal medical job lines using OR-Tools CP-SAT.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/schedule/generate/json": {
+      "post": {
+        "tags": [
+          "Scheduling"
+        ],
+        "summary": "Generate Schedule Json",
+        "description": "Generate an optimal schedule and return verbose JSON payload.",
+        "operationId": "generate_schedule_json_schedule_generate_json_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchedulingRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedule/generate/excel": {
+      "post": {
+        "tags": [
+          "Scheduling"
+        ],
+        "summary": "Generate Schedule Excel",
+        "description": "Generate an optimal schedule and return an Excel file (.xlsx) formulated with 52-week columns.",
+        "operationId": "generate_schedule_excel_schedule_generate_excel_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchedulingRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Rotation": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "capacity": {
+            "type": "integer",
+            "title": "Capacity"
+          },
+          "experience_categories": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Experience Categories",
+            "description": "AMC Categories A, B, C, D"
+          },
+          "parent_specialty": {
+            "type": "string",
+            "title": "Parent Specialty"
+          },
+          "subspecialty": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subspecialty"
+          },
+          "is_service_term": {
+            "type": "boolean",
+            "title": "Is Service Term",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "capacity",
+          "parent_specialty"
+        ],
+        "title": "Rotation"
+      },
+      "SchedulingRequest": {
+        "properties": {
+          "workers": {
+            "items": {
+              "$ref": "#/components/schemas/Worker"
+            },
+            "type": "array",
+            "title": "Workers"
+          },
+          "rotations": {
+            "items": {
+              "$ref": "#/components/schemas/Rotation"
+            },
+            "type": "array",
+            "title": "Rotations"
+          },
+          "term_structure": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Term Structure",
+            "description": "Lengths of each term in weeks, e.g., [10, 10, 10, 10, 12]"
+          },
+          "priority_requirements": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Priority Requirements"
+          }
+        },
+        "type": "object",
+        "required": [
+          "workers",
+          "rotations",
+          "term_structure"
+        ],
+        "title": "SchedulingRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "Worker": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level",
+            "description": "e.g., PGY1 or PGY2"
+          },
+          "targeted_pathway": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Targeted Pathway"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "level"
+        ],
+        "title": "Worker"
+      }
+    }
+  }
+}

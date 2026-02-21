@@ -97,3 +97,14 @@ USING (
 - [ ] Audit all tables in `match` and `messages` schemas for RLS compliance.
 - [ ] Implement a migration to populate `auth.users` metadata with roles for existing users.
 :::
+
+## 🛡️ Abuser Stories & Security Acceptance Criteria
+
+RLS policies are verified against specific **Abuser Stories** to ensure the "Principle of Least Privilege" is maintained.
+
+### Priority Scenarios
+
+1.  **[AB-01: Illegal Preference Modification](../../platform/user-stories/preference-frontend/index.md#ab-01-illegal-preference-modification)**: Attackers using stolen API keys must be blocked from modifying worker preferences.
+2.  **AB-02: Cross-Org Data Access**: Users from Organization A must never be able to `SELECT` or `UPDATE` records belonging to Organization B, even if they have a valid session.
+
+These scenarios are tested as part of the `RLS.test.sql` and `RLS.test.ts` test suites.
