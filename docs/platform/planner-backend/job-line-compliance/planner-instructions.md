@@ -8,6 +8,7 @@ title: Planner Instructions Summary
 ## 1. Core Objective & Scope
 
 *   **Purpose**: The service handles the *macro-planning and generation phase* of job lines. It creates a diverse pool of AMC-compliant, legally viable, and highly attractive job lines based on a requested count (`num_job_lines`).
+*   **Dynamic Scaling**: The planner supports dynamic headcount limits via `allow_partial_filling` and `max_seconds`. If a specific numerical target (e.g., 140 lines) exceeds structural capacity, the solver will mathematically prioritize building as many valid lines as possible within the timeout window, returning a `FEASIBLE` subset.
 *   **Out of Scope**: The service does *not* assign these generated lines to specific individual workers based on their personal preferencing submissions. It generates anonymous templates designed to capture varied interests. It also does *not* manage micro-rostering (e.g., specific shifts, 10-hour breaks).
 
 ## 2. Execution Environment & Outputs
@@ -17,7 +18,8 @@ title: Planner Instructions Summary
 *   **Outputs**:
     1. A verbose JSON payload for deep programmatic debugging.
     2. A formulated Excel spreadsheet (`.xlsx` generated directly by Python) containing the job lines as rows and Weeks 1-52 as columns (with rotations appearing as merged date blocks).
-    3. An extra diagnostic sheet within the Excel file detailing underfilled units and dropped excludable positions.
+    3. An extra diagnostic sheet within the Excel file detailing dropped capacity and unrecognized specialty inferences.
+    4. Diagnostic JSON array exports (`positions_export.json` and `positions_unmatched.json`) to surface the underlying specialty extraction logic out to downstream services.
 
 ## 3. Hard Constraints (Accreditation & Capacity)
 
@@ -35,7 +37,8 @@ title: Planner Instructions Summary
 ## 5. Medium/Soft Constraints (Affinity, Leave & Diversity)
 
 *   **Annual Leave**: Mandated 5 weeks total. Distributed across the clinical year with a benchmark target of allocating approximately **70% of all annual leave to the first half of the year** to mitigate late-year resignations.
-*   **Affinity Matrix**: Rotational synergy (e.g., ICU + Anaesthetics) is scored using linear-scaled Pearson R coefficients derived from the MSIS survey data (Chew et al.).
+*   **Intelligent Specialty Inference**: The system uses pattern-matching (powered by `pmcv_specialties.json`) to extract underlying medical specialties (e.g., Cardiology, General Surgery) directly from the raw string values of hospital Position Names.
+*   **Affinity Matrix**: Rotational synergy (e.g., ICU + Anaesthetics) is scored using linear-scaled Pearson R coefficients derived from the MSIS survey data (Chew et al.). True valid specialties are inferred via the parsing layer and cross-referenced against the correlation matrix.
 *   **Abstraction Strategy**: The survey data is abstracted into a standalone, statically loaded JSON configuration file (`affinity_matrix_2026.json`), allowing the affinity weights to be hot-swapped or updated via future localized surveys without altering the core Python solver code or requiring complex API payloads.
 *   **Diverse Preference Optimization (DivPO)**: Because generic job lines lack individual human preferences pulling the solver in different directions, the engine uses a Hamming-distance proxy penalty to prevent identical job line "clumping". The solver actively forces global diversity, balancing the highly attractive Affinity Matrix pathways across all generated templates.
 
