@@ -28,7 +28,7 @@ This document outlines the implementation methodology, quality standards, and de
     - **LCP (Largest Contentful Paint)**: < 1.2s
     - **FID (First Input Delay)**: < 100ms
     - **CLS (Cumulative Layout Shift)**: < 0.1
-    - Optimized via Next.js Server Components and Tailwind 4's lightweight runtime.
+    - Optimised via Next.js Server Components and Tailwind 4's lightweight runtime.
 - **Visual Design**: Follows the **Receptor Design System**:
     - **Typography**: Inter (General); Roboto (Data-heavy).
     - **Icons**: [Lucide React](https://lucide.dev/) for consistent stroke icons.

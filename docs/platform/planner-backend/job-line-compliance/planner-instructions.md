@@ -42,7 +42,7 @@ title: Planner Instructions Summary
 *   **Intelligent Specialty Inference**: The system uses pattern-matching (powered by `pmcv_specialties.json`) to extract underlying medical specialties (e.g., Cardiology, General Surgery) directly from the raw string values of hospital Position Names.
 *   **Affinity Matrix**: Rotational synergy (e.g., ICU + Anaesthetics) is scored using linear-scaled Pearson R coefficients derived from the MSIS survey data (Chew et al.). True valid specialties are inferred via the parsing layer and cross-referenced against the correlation matrix.
 *   **Abstraction Strategy**: The survey data is abstracted into a standalone, statically loaded JSON configuration file (`affinity_matrix_2026.json`), allowing the affinity weights to be hot-swapped or updated via future localized surveys without altering the core Python solver code or requiring complex API payloads.
-*   **Diverse Preference Optimization (DivPO)**: Because generic job lines lack individual human preferences pulling the solver in different directions, the engine uses a Hamming-distance proxy penalty to prevent identical job line "clumping". The solver actively forces global diversity, balancing the highly attractive Affinity Matrix pathways across all generated templates.
+*   **Diverse Preference Optimisation (DivPO)**: Because generic job lines lack individual human preferences pulling the solver in different directions, the engine uses a Hamming-distance proxy penalty to prevent identical job line "clumping". The solver actively forces global diversity, balancing the highly attractive Affinity Matrix pathways across all generated templates.
 
 ## 6. Testing, Validation & Documentation
 

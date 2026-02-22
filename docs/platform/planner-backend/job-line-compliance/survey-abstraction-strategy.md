@@ -7,7 +7,7 @@ title: Survey Abstraction Strategy
 
 ## Introduction
 
-The mathematical optimization of medical job lines using the OR-Tools CP-SAT solver relies heavily on an overarching "Affinity Matrix" to quantify the desirability and thematic cohesion of rotation pairings. While the foundational matrix is seeded by the **Medical Specialty Interest Survey (MSIS)** (Chew et al., 2023), it is critical to abstract this data source from the core solver logic.
+The mathematical optimisation of medical job lines using the OR-Tools CP-SAT solver relies heavily on an overarching "Affinity Matrix" to quantify the desirability and thematic cohesion of rotation pairings. While the foundational matrix is seeded by the **Medical Specialty Interest Survey (MSIS)** (Chew et al., 2023), it is critical to abstract this data source from the core solver logic.
 
 Abstracting the survey data ensures that the Receptor Planner remains adaptable. As new prevailing trends emerge, vocational training requirements shift, or localized hospital surveys are conducted, the underlying affinity weights can be updated or entirely replaced without requiring structural changes to the Python CP-SAT service.
 
@@ -48,7 +48,7 @@ When future surveys are conducted (e.g., a localized health service survey captu
 1. **Data Collection**: New preference data is collected.
 2. **Statistical Analysis**: The raw data is analyzed to generate a new correlation matrix (e.g., Pearson R coefficients).
 3. **Weight Translation Pipeline**: A standalone utility script (outside of the core CP-SAT loop) scales these newly calculated coefficients into the standard integer format.
-4. **Profile Injection**: The new JSON configuration is injected into the Receptor Planner. The solver reads the new mapping at runtime and inherently adjusts its optimization targets—favoring the newly identified pathways without requiring algorithmic refactoring.
+4. **Profile Injection**: The new JSON configuration is injected into the Receptor Planner. The solver reads the new mapping at runtime and inherently adjusts its optimisation targets—favoring the newly identified pathways without requiring algorithmic refactoring.
 
 ## Benefits of the Abstraction Layer
 

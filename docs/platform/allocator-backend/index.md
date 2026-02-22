@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Allocator Backend
 
-The Allocator is the core optimization engine of the Receptor suite. It is responsible for matching workers to job lines based on a complex set of preferences, weightings, and eligibility rules.
+The Allocator is the core optimisation engine of the Receptor suite. It is responsible for matching workers to job lines based on a complex set of preferences, weightings, and eligibility rules.
 
 <Tabs>
   <TabItem value="functional" label="Functional Overview" default>
@@ -35,7 +35,7 @@ sequenceDiagram
         SVC->>DB: Fetch Run Data (Workers, Jobs, Prefs)
         DB-->>SVC: Raw Data
         SVC->>Solver: Build Problem & Constraints
-        Solver->>Solver: Optimize Objective Function
+        Solver->>Solver: Optimise Objective Function
         Solver-->>SVC: Solution (Allocations)
         SVC->>DB: Write allocations & Mark Complete
     end

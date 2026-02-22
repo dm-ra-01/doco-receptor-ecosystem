@@ -3,11 +3,11 @@ sidebar_position: 6
 title: OR-Tools Scheduling Research
 ---
 
-# Technical Design Specifications: Optimization of Medical Prevocational Job Lines Using OR-Tools CP-SAT
+# Technical Design Specifications: Optimisation of Medical Prevocational Job Lines Using OR-Tools CP-SAT
 
-## Introduction to Algorithmic Medical Workforce Optimization
+## Introduction to Algorithmic Medical Workforce Optimisation
 
-The scheduling and allocation of prevocational medical staff—specifically Postgraduate Year 1 (PGY1) interns and Postgraduate Year 2 (PGY2) workers—represents a highly complex combinatorial optimization problem that sits at the intersection of stringent regulatory compliance, industrial relations law, and human behavioral psychology. Health networks across Australia, and particularly within the state of Victoria, are required annually to generate "job lines." These job lines are predetermined, year-long sequences of clinical rotations allocated to junior doctors, serving as the architectural foundation of their training and the operational backbone of hospital staffing models.
+The scheduling and allocation of prevocational medical staff—specifically Postgraduate Year 1 (PGY1) interns and Postgraduate Year 2 (PGY2) workers—represents a highly complex combinatorial optimisation problem that sits at the intersection of stringent regulatory compliance, industrial relations law, and human behavioral psychology. Health networks across Australia, and particularly within the state of Victoria, are required annually to generate "job lines." These job lines are predetermined, year-long sequences of clinical rotations allocated to junior doctors, serving as the architectural foundation of their training and the operational backbone of hospital staffing models.
 
 Traditionally, the generation of these job lines has relied on manual heuristics, historical templates, and localized administrative knowledge maintained by Medical Education Units. However, the introduction of the revised Australian Medical Council (AMC) National Framework for Prevocational Medical Training—implemented nationwide in 2024 for PGY1 interns and systematically rolling out in 2025 and 2026 for PGY2 workers—has drastically altered the regulatory and operational landscape, rendering manual compilation obsolete.
 
@@ -70,7 +70,7 @@ Industrial legality is governed by the *Medical Practitioners (Victorian Public 
 *   **Annual Leave Allocation**: Five weeks (190 hours) mandated per doctor. The solver must optimally place this pseudo-rotation block within the year without violating core experience requirements.
 *   **Macro-Rostering Viability**: While the solver does not generate daily shift patterns (excluding micro-rostering concepts like 14-hour max shifts or 10-hour breaks), it ensures that the macroscopic allocation provides the structural capacity and `MinStaffing` thresholds required for downstream unit rosterers to create legal, EBA-compliant shift templates.
 
-## Soft Constraints: Optimizing Career Affinity and Mitigating Clumping
+## Soft Constraints: Optimising Career Affinity and Mitigating Clumping
 
 ### The Affinity Matrix and Specialty Career Tracks
 Using the **Medical Specialty Interest Survey (MSIS)** (Chew et al., 2023) correlation findings, an Affinity Matrix $A(r_1, r_2) \in [-1, 1]$ defines thematic synergy between different clinical rotations based on Pearson $R$ coefficients. This quantifiable data enables the solver to measure job line cohesion mathematically:
@@ -81,7 +81,7 @@ Using the **Medical Specialty Interest Survey (MSIS)** (Chew et al., 2023) corre
 
 The CP-SAT objective function utilizes these coefficients by **linearly scaling** the Pearson R values into discrete integer weights. The solver sums these linear affinity weights for all rotation pairs within a job line, significantly increasing the logical "attractiveness" of the schedule and ensuring job lines are cohesive for later preferencing.
 
-### Diverse Preference Optimization (DivPO)
+### Diverse Preference Optimisation (DivPO)
 To prevent "clumping" (where the solver hoards all popular rotations into a few elite lines), a **Diversity Penalty** is introduced. If a new job line `J_k` is too similar to `J_{k-1}` (measured via Hamming distance), it is penalized. This forces the solver to create "hybrid" lines, pairing competitive terms with less popular but vital ones, flattening the preference curve.
 
 ## Algorithmic Implementation and Infeasibility Management
@@ -94,7 +94,7 @@ Implementation uses the Python `cp_model` library from OR-Tools. The process inv
 
 ### Execution Environment and Performance
 The CP-SAT model will run as a synchronous service behind a FastAPI gateway. As job line generation is a low-volume operation (~20 requests per month), it will accept incoming HTTP requests containing the required variables (number of workers, term lengths, rotation capacities) and a reference to an ingested JSON file containing the Affinity Weight Profile. 
-Because mathematical optimization can run indefinitely searching for the absolute peak optimal solution, the solver is configured with a strict, customizable time limit (defaulting to 7 minutes). The objective isn't necessarily establishing mathematical perfection, but finding a highly optimal, "good enough" feasible solution before the API timeout occurs.
+Because mathematical optimisation can run indefinitely searching for the absolute peak optimal solution, the solver is configured with a strict, customizable time limit (defaulting to 7 minutes). The objective isn't necessarily establishing mathematical perfection, but finding a highly optimal, "good enough" feasible solution before the API timeout occurs.
 
 ### Diagnostics
 If the model is `INFEASIBLE`, the architecture employs:
@@ -103,4 +103,4 @@ If the model is `INFEASIBLE`, the architecture employs:
 
 ## Conclusion
 
-By encoding AMC frameworks and Victorian EBA protections into Google OR-Tools, health networks can generate legally and educationally bulletproof schedules. The integration of Diverse Preference Optimization (DivPO) ensures that high-value clinical experiences are distributed equitably, improving workplace equity and junior doctor satisfaction.
+By encoding AMC frameworks and Victorian EBA protections into Google OR-Tools, health networks can generate legally and educationally bulletproof schedules. The integration of Diverse Preference Optimisation (DivPO) ensures that high-value clinical experiences are distributed equitably, improving workplace equity and junior doctor satisfaction.

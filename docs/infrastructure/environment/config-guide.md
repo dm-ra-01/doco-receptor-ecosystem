@@ -163,7 +163,7 @@ Ensure `/etc/fstab` contains the swap entry:
 
 ## 5. Development Tools
 
-### VS Code Workspace Optimization
+### VS Code Workspace Optimisation
 To prevent file watcher exhaustion (the `ENOSPC` error), it is recommended to exclude large directories that don't need real-time monitoring.
 
 1.  **Create/Open** `.vscode/settings.json` in the root of your developer workspace (e.g., `~/development/.vscode/settings.json`).

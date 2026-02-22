@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # System Architecture
 
-The Allocator is structured as a stateless service layer that translates database records into a mathematical optimization problem.
+The Allocator is structured as a stateless service layer that translates database records into a mathematical optimisation problem.
 
 <Tabs>
   <TabItem value="orchestration" label="Service Orchestration" default>

@@ -55,7 +55,7 @@ This document tracks the user stories for the Preference Frontend (Worker-facing
 ### Power User Tools
 | ID | User Story | Priority | Status | Notes |
 |:---|:---|:---:|:---:|:---|
-| PU-01 | As a Power User, I want to access a High-Level Matrix View to see all options at once. | P2 | 🟢 | Desktop-optimized dense layout. |
+| PU-01 | As a Power User, I want to access a High-Level Matrix View to see all options at once. | P2 | 🟢 | Desktop-optimised dense layout. |
 | PU-02 | As a Power User, I want to globally blacklist specific Hospital-Specialty combinations. | P1 | 🔴 | Overrides default job line scores. |
 
 ### Verification & Submission

@@ -12,13 +12,14 @@ The Receptor platform is divided into four specialized components (Workforce, Pl
 graph TD
     subgraph Frontend ["Frontend Applications"]
         PREF["Preferencer<br/>(preference-frontend)"]
-        PLAN["Planner<br/>(planner-frontend)"]
+        PLAN["Planner Front<br/>(planner-frontend)"]
         WORK["Workforce<br/>(workforce-frontend)"]
         LEGACY["Legacy Admin<br/>(rotator_worker)"]
     end
     
     subgraph Backend ["Backend Services"]
         SB["Supabase (Self-Hosted)"]
+        PLAN_ENG["Planner Engine<br/>(receptor-planner)"]
         ALLOC["Allocator<br/>(match-backend)"]
     end
     
@@ -27,6 +28,8 @@ graph TD
     WORK -->|Auth/Data| SB
     LEGACY -.->|Deprecated| SB
     
+    PLAN -->|API| PLAN_ENG
+    PLAN_ENG -->|Structured Job Lines| SB
     SB -->|Webhook| ALLOC
     ALLOC -->|Results| SB
 ```
@@ -34,9 +37,9 @@ graph TD
 | Component | Target Users | Responsibilities | Status |
 |:----|:-------------|:-----------------|:-------|
 | [**Workforce**](./frontend-apps/receptor-workforce) | System Administrators | Organizations, teams, categories, locations, positions | 🟡 In Progress |
-| [**Planner**](./frontend-apps/receptor-planner) | Workforce Managers | Allocation plans, runs, mappings, rotation customisation | 🟢 Complete |
+| [**Planner**](./frontend-apps/receptor-planner) | Workforce Managers | Algorithmic job line structure generation and mapping | 🟢 Complete |
 | [**Preferencer**](./frontend-apps/receptor-preferencer) | Healthcare Workers | Preference submission, profile management, rotation viewing | 🟡 In Progress |
-| [**Allocator**](./allocator-backend/) | System / Managers | The matching engine, optimization logic, and audit trail generation | 🟢 Complete |
+| [**Allocator**](./allocator-backend/) | System / Managers | The matching engine to assign doctors to job lines | 🟢 Complete |
 | [**Legacy Admin**](./frontend-apps/receptor-management) | (Deprecated) | All admin functions (being replaced by above apps) | ⚪ Deprecated |
 
 
@@ -51,6 +54,7 @@ graph TD
 | **Workforce Frontend** | [Next.js 15+](https://nextjs.org/) | [workforce-frontend](https://github.com/dm-ra-01/workforce-frontend) |
 | **Legacy Admin** | [Flutter](https://flutter.dev/) | [rotator_worker](https://github.com/dm-ra-01/rotator_worker) |
 | **Backend-as-a-Service** | [Supabase](https://supabase.com/) | [supabase-receptor](https://github.com/dm-ra-01/supabase-receptor) |
+| **Planner Engine** | Python CP-SAT Solver | [receptor-planner](https://github.com/dm-ra-01/receptor-planner) |
 | **Allocator Engine** | Python MILP Solver | [match-backend](https://github.com/dm-ra-01/match-backend) |
 
 ### Next.js Application Architecture
@@ -123,13 +127,16 @@ graph TD
     end
     
     subgraph Compute ["Compute Services"]
-        ALLOC["Allocator Engine<br/>(Python)"]
+        PLAN_ENG["Planner Engine<br/>(Python CP-SAT)"]
+        ALLOC["Allocator Engine<br/>(Python MILP)"]
     end
     
     WORKER -->|HTTPS| KONG
     MANAGER -->|HTTPS| KONG
     ADMIN -->|HTTPS| KONG
     
+    MANAGER -->|Generate AI Lines| PLAN_ENG
+    PLAN_ENG -->|Save Job Lines| KONG
     DB -->|Webhook| ALLOC
     ALLOC -->|RPC| DB
     

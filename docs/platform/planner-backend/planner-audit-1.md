@@ -19,7 +19,7 @@ Here is a breakdown of the implementation's compliance status.
 
 ## 2. Partially Compliant / Pending Features (Next Steps)
 
-*   **Medium/Soft Constraints:** As noted in the objective logs, the CP-SAT engine currently only maintains placeholders (`_apply_soft_constraints()`) for the Affinity Matrix scoring, Annual Leave front-loading (70% H1 distribution requirement), and the Diverse Preference Optimization (DivPO) logic to prevent class clumping. These are formally next in the pipeline.
+*   **Medium/Soft Constraints:** As noted in the objective logs, the CP-SAT engine currently only maintains placeholders (`_apply_soft_constraints()`) for the Affinity Matrix scoring, Annual Leave front-loading (70% H1 distribution requirement), and the Diverse Preference Optimisation (DivPO) logic to prevent class clumping. These are formally next in the pipeline.
 *   **Targeted Priority Pathways:** While the `SchedulingRequest` and `Worker` Pydantic models correctly accept cohort scoping parameters (e.g., `targeted_pathway`), the solver mathematical bias enforcing exact or heavily-weighted generation for these specific pathways has not yet been concretely implemented in the boolean tensors.
 *   **Historical Validation:** While automated unit and integration tests are robust and fully 100% green on synthetic arrays, the final compliance check of ingesting the 140-worker longitudinal historical datasets to manually benchmark algorithmic efficiency against the legacy manual planner has not yet occurred.
 

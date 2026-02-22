@@ -8,9 +8,9 @@ The Allocator uses **Google OR-Tools CP-SAT** to solve a variation of the Hospit
 
 - [Solver Implementation Source](https://github.com/dm-ra-01/match-backend/blob/main/allocator/problem.py#L1202)
 
-## Optimization Objective
+## Optimisation Objective
 
-### Optimization Objective
+### Optimisation Objective
 
 **Minimize Total Weighted Dissatisfaction (Z):**
 

@@ -136,7 +136,7 @@ The matching engine (`match-backend`) uses Mixed Integer Programming (MIP) to al
 | **Job Line Cap** | Limits the number of distinct job lines a preferencer (e.g., a specific department head) can oversee in a given run. |
 | **Worker Cap** | Limits the total number of workers a preferencer can handle across all their job lines. |
 
-### Stability & Optimization
+### Stability & Optimisation
 
 The solver aims to minimize a **Weighted Dissatisfaction Score**, which is a combination of worker dissatisfaction (based on their job line rankings) and preferencer dissatisfaction (based on their worker preferences).
 

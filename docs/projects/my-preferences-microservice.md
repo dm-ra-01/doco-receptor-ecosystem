@@ -532,7 +532,7 @@ src/components/
 
 ### Preference Selection Interaction
 
-The preference selector uses a **horizontal button group** optimized for touch:
+The preference selector uses a **horizontal button group** optimised for touch:
 
 ```tsx
 // src/components/preferences/PreferenceSelector.tsx
@@ -866,11 +866,11 @@ describe('Preferences Page Integration', () => {
 | Cumulative Layout Shift | < 0.1 | Lighthouse |
 | Bundle Size (JS) | < 100kb gzipped | webpack-bundle-analyzer |
 
-### Optimization Strategies
+### Optimisation Strategies
 
 1. **Server Components** - Fetch data on server, minimize client JS
 2. **Streaming** - Use `Suspense` for progressive loading
-3. **Image Optimization** - Next.js `Image` component for icons
+3. **Image Optimisation** - Next.js `Image` component for icons
 4. **Font Loading** - Preload Inter font subset
 5. **Edge Caching** - Cache static assets at edge
 

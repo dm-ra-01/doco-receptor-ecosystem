@@ -8,7 +8,7 @@ This report documents the technical findings and learnings from the migration of
 
 ## Executive Summary
 
-The migration was successful, resulting in a more robust and portable solver. Verification against production-representative data (1.xlsx) confirms that the OR-Tools model achieves the **exact same optimization quality** as the legacy MIP solver, with identical dissatisfaction metrics.
+The migration was successful, resulting in a more robust and portable solver. Verification against production-representative data (1.xlsx) confirms that the OR-Tools model achieves the **exact same optimisation quality** as the legacy MIP solver, with identical dissatisfaction metrics.
 
 ## Key Findings
 
@@ -51,4 +51,4 @@ The migration was verified using a newly created automated test suite:
 
 1. **Complete Supabase Client Migration**: The codebase still contains legacy database patterns that should be refactored to use the Supabase Python client for better integration.
 2. **Expand Test Coverage**: Use the new Excel ingestion capability to create a "Golden Suite" of test cases for different edge cases (e.g., highly constrained eligibility).
-3. **Performance Benchmarking**: Compare solve times between OR-Tools and MIP for extremely large scales (1000+ workers) to further optimize CP-SAT parameters.
+3. **Performance Benchmarking**: Compare solve times between OR-Tools and MIP for extremely large scales (1000+ workers) to further optimise CP-SAT parameters.

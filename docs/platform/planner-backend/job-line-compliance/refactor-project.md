@@ -17,7 +17,7 @@ The legacy Python script successfully proved the mathematical viability of assig
 2. **Ecosystem Integration**: Standardize the database interaction layer to match receptor ecosystem guidelines, moving away from loose scripts towards a structured, API-first service approach.
 3. **Better Tooling**: Introduce modern Python package management (e.g., `uv` or `Poetry`), strict linting/formatting (`Ruff`), and static type enforcement (`mypy`).
 4. **Dual-Mode I/O (API & File Injection)**: Mirror the `match-backend` strategy. Support extracting constraints directly from Supabase (for production API routes), while simultaneously allowing `.xlsx` file injection for offline simulations, rigorous localized debugging, and non-destructive experimentation.
-5. **Higher Performance**: Optimize the `CpModel` variable generation and search strategy to drop solve-time. Run solver requests non-blockingly via FastAPI Background Tasks.
+5. **Higher Performance**: Optimise the `CpModel` variable generation and search strategy to drop solve-time. Run solver requests non-blockingly via FastAPI Background Tasks.
 6. **Better Testability**: Build a rigorous automated testing pipeline (`pytest`) ensuring that every constraint (e.g., max 1 rural term, 5 weeks leave) is mathematically verified against mock data objects without needing a live database connection.
 
 ---

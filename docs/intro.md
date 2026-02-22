@@ -20,11 +20,11 @@ We leverage a world-class technology stack to ensure security and scalability:
 - [User-Centric Onboarding](platform/onboarding) — Frictionless activation flow
 
 ### Core Applications
-Custom interfaces tailored for specific user personas:
-- [Receptor Preferencer](platform/frontend-apps/receptor-preferencer) — Worker-facing preference submission
-- [Receptor Planner](platform/frontend-apps/receptor-planner) — Allocation planning and run management
-- [Receptor Workforce](platform/frontend-apps/receptor-workforce) — Position and organization master data
-- [Receptor Allocator](platform/allocator-backend/) — Intelligent matching and optimization engine
+Receptor provides a suite of specialized applications working in sequence to manage the full rotation lifecycle:
+- [Receptor Workforce](platform/frontend-apps/receptor-workforce) — System Admins (Foundation): Position and organization master data management
+- [Receptor Planner](platform/frontend-apps/receptor-planner) — Workforce Managers (Step 1): Algorithmic generation of flawless, AMC-compliant annual job lines from raw capacities
+- [Receptor Preferencer](platform/frontend-apps/receptor-preferencer) — Healthcare Workers (Step 2): Worker-facing preference submission against generated job lines
+- [Receptor Allocator](platform/allocator-backend/) — Intelligent Engine (Step 3): Mathematically rigorous candidate-to-line matching and optimisation
 
 ### Service Offerings
 Receptor delivers value through structured service tiers—from Core allocation services available today to Strategic workforce integrations on our long-term roadmap:

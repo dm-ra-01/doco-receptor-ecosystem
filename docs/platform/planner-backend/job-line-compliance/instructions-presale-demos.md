@@ -12,7 +12,7 @@ This document outlines the expansive strategy for utilizing the Receptor Planner
 
 We can programmatically ingest PMCV's published accredited post data (which explicitly outlines capacities and rotation types for PGY1 and PGY2 posts across Victoria). Armed with this data, the Receptor Planner can dynamically generate 100% compliant, structurally perfect job lines for *any* targeted Health Service prior to ever speaking with them.
 
-We approach each organisation with a free, custom-tailored example of their own hospital's rotations mathematically optimized into perfect job lines.
+We approach each organisation with a free, custom-tailored example of their own hospital's rotations mathematically optimised into perfect job lines.
 
 ---
 
@@ -47,7 +47,7 @@ For investors, this presale capability is a massive de-risking factor and growth
 
 - **Low Customer Acquisition Cost (CAC):** The ability to generate bespoke, highly relevant collateral for *any* hospital without manual effort drastically lowers the friction and cost of sales outreach.
 - **Defensible IP:** Demonstrating a working constraint-solver that effortlessly navigates complex, domain-specific rules (PMCV guidelines) proves deep technical moats.
-- **"Land and Expand" Hook:** Offering free structural lines is the ultimate "freemium" wedge to secure enterprise B2B SaaS contracts for the full rostering and preference optimization suite.
+- **"Land and Expand" Hook:** Offering free structural lines is the ultimate "freemium" wedge to secure enterprise B2B SaaS contracts for the full rostering and preference optimisation suite.
 
 ---
 
@@ -58,7 +58,7 @@ For investors, this presale capability is a massive de-risking factor and growth
 2. **Asset Generation:** Run the `generate_presale_lines` API endpoint targeting that specific hospital and cohort (e.g., PGY1).
 3. **Cold Outreach:** Email the MWU Director: *"I generated 10 compliant PGY1 job lines using your exact PMCV capacities. Can I show you how the algorithm built them?"*
 4. **The Demo:** Walk through the generated payload. Focus on the constraints the algorithm successfully navigated.
-5. **The Close:** Offer a paid pilot to run their *actual* upcoming medical year with real doctor preferences using Diverse Preference Optimization (DivPO).
+5. **The Close:** Offer a paid pilot to run their *actual* upcoming medical year with real doctor preferences using Diverse Preference Optimisation (DivPO).
 
 ---
 

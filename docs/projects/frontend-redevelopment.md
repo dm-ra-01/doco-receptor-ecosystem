@@ -20,7 +20,7 @@ Receptor's functionality is divided into four specialized components:
 | **Planner Frontend** | Workforce Managers | Allocation plans, Runs, Position/Worker mappings, Rotation customisation. | [planner-frontend](https://github.com/dm-ra-01/planner-frontend) |
 | **Workforce Frontend** | System Administrators | Organizations, Teams, Team Categories, Locations, Positions. | [workforce-frontend](https://github.com/dm-ra-01/workforce-frontend) |
 | **Public Landing Page**| Potential Clients | Marketing, Branding, Strategic Vision, Lead Generation. | [website-frontend](https://github.com/dm-ra-01/website-frontend) |
-| **Allocator Backend** | System / Managers | The matching engine, optimization logic, and audit trail generation. | [match-backend](https://github.com/dm-ra-01/match-backend) |
+| **Allocator Backend** | System / Managers | The matching engine, optimisation logic, and audit trail generation. | [match-backend](https://github.com/dm-ra-01/match-backend) |
 
 
 ## Project Status

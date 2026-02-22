@@ -87,7 +87,7 @@ To ensure the app remains responsive under heavy load (ranking up to 140 job lin
 | **Interaction Latency** | Rating Update (140 rows) | **64ms** |
 | **Grid View Render** | 140 Preference Cards | **154ms** |
 
-### Optimization Notes
+### Optimisation Notes
 - **Virtualization**: Not currently required for the production target of 140 rows, as render times remain well under the 300ms "instant" threshold.
 - **Interaction Speed**: Direct DOM updates for ratings (stars) ensure feedback is perceived as instantaneous.
 - **Large Datasets**: The `MatrixView` handles up to 300 rows with acceptable performance (~160ms), ensuring headroom for larger organizations.

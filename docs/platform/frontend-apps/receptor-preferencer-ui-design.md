@@ -41,7 +41,7 @@ The Receptor logo features a stylized "R" with flowing curves reminiscent of a s
 ### Design Principles
 
 1. **Mobile-First** - Every design starts with the mobile viewport
-2. **Touch-Optimized** - Minimum 44×44px touch targets
+2. **Touch-Optimised** - Minimum 44×44px touch targets
 3. **Instant Feedback** - Every action has immediate visual response
 4. **Clarity Over Density** - Prefer scrolling over cramped layouts
 5. **Dark Mode Native** - Reduces eye strain during night shifts

@@ -38,7 +38,7 @@ Centralized management of the monorepo lifecycle.
 - [ ] **Seed Integrity**: Automated verification of the Acacia dataset consistency.
 
 ### ⚙️ Match Backend (`match-backend`)
-- **Primary Goal**: Algorithm correctness and optimization performance tracking.
+- **Primary Goal**: Algorithm correctness and optimisation performance tracking.
 - [ ] **Algorithm Regression**: Run solver consistency tests on every core physics change.
 - [ ] **Performance Benchmarking**: Track solver time/memory usage relative to baseline datasets.
 - [ ] **Containerization**: Automated Docker build and push to registry on merge to main.

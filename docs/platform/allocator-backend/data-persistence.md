@@ -47,4 +47,4 @@ The `postgres.py` module contains the low-level Supabase client interactions:
 - `fetch_worker_qualifications(run)`: Direct RPC caller.
 
 ## Security & RLS
-The Allocator typically runs using a `service_role` key to bypass RLS, as it needs to see all workers and preferences across an organization to perform the global optimization. However, the API endpoints themselves should be secured.
+The Allocator typically runs using a `service_role` key to bypass RLS, as it needs to see all workers and preferences across an organization to perform the global optimisation. However, the API endpoints themselves should be secured.

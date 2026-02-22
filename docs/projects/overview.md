@@ -18,7 +18,7 @@ This section tracks the major development initiatives for the Receptor platform.
 | [Preferencer Frontend](./my-preferences-microservice) | Worker preference submission app (Next.js) | 🟡 In Progress |
 | [Planner Frontend](./planner-frontend) | Management of allocation plans and runs (Next.js) | 🟢 Complete |
 | [Workforce Frontend](./workforce-frontend) | Organizational master data management (Next.js) | 🟡 In Progress |
-| [Allocator Backend](../platform/allocator-backend) | Matching algorithm and optimization engine | 🟢 Complete |
+| [Allocator Backend](../platform/allocator-backend) | Matching algorithm and optimisation engine | 🟢 Complete |
 | [Allocator Refactoring](./allocator-refactoring) | Modernization of Python engine | 🟡 In Progress |
 | [OR-Tools Report](./ortools-migration-report) | Technical findings from solver migration | 🟢 Complete |
 | [Unified CI/CD Pipeline](./unified-cicd-pipeline) | Centralized, automated pipeline for the monorepo | 🟡 In Progress |

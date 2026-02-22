@@ -52,7 +52,7 @@ To update the graph after making schema changes:
 ### 2. Generated Files
 - [db-graph.mermaid](file:///Users/ryan/development/common_bond/antigravity-environment/supabase-receptor/static/db-graph.mermaid): Full schema relationship diagram.
 - [db-graph.json](file:///Users/ryan/development/common_bond/antigravity-environment/supabase-receptor/static/db-graph.json): Detailed human-readable schema data (~80KB).
-- [db-graph.min.json](file:///Users/ryan/development/common_bond/antigravity-environment/supabase-receptor/static/db-graph.min.json): Highly compact/token-optimized JSON for agent use (~25KB).
+- [db-graph.min.json](file:///Users/ryan/development/common_bond/antigravity-environment/supabase-receptor/static/db-graph.min.json): Highly compact/token-optimised JSON for agent use (~25KB).
 
 ## Core Entities
 

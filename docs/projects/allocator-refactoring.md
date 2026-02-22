@@ -16,7 +16,7 @@ Modernization project for the Python-based Allocator matching engine.
 
 ## Background
 
-The Allocator is the core matching engine for Receptor. It uses mathematical optimization to assign workers to job rotations. The system has migrated from MILP (`python-mip`) to **Google OR-Tools (CP-SAT)** to improve performance and maintainability.
+The Allocator is the core matching engine for Receptor. It uses mathematical optimisation to assign workers to job rotations. The system has migrated from MILP (`python-mip`) to **Google OR-Tools (CP-SAT)** to improve performance and maintainability.
 
 ## Goals
 
