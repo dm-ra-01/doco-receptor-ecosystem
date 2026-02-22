@@ -23,7 +23,9 @@ title: Planner Instructions Summary
 
 ## 3. Hard Constraints (Accreditation & Capacity)
 
-*   **AMC/PMCV Rules**: Strict enforcement of clinical experience categories, 47-week minimums, and specialty/subspecialty percentage caps.
+*   **State & Cohort Strategy Pattern**: Accreditation rules (e.g., maximum specialty caps, minimum 47-week clinical years, explicit experience categories) are completely decoupled via a `CohortConstraintStrategy` polymorphic engine.
+*   **Safety via Defaults**: The `SchedulingRequest` API payload natively defaults to an `UNRESTRICTED` state and `ANY` cohort, safely prioritizing pure affinity mapping and leaving strict parameters optionally requested (e.g., `state="VIC", cohort="PGY1"`).
+*   **AMC/PMCV Bounds (e.g., VIC PGY1)**: Strict enforcement of specific clinical experience categories, 47-week minimums, and specialty (max 50%)/subspecialty (max 25%) limits based on explicit state rules.
 *   **Term Structure**: Rigidly pre-defined via input variables (e.g., 5 terms of 10+10+10+10+12 weeks, or 4 terms of 13 weeks).
 *   **Unit Capacities**: Modeled as strict upper bounds ($X \le Capacity$).
 *   **Infeasibility Fallback**: If constraints clash, the solver will *arbitrarily* drop predefined 'excludable' positions (like Pathology) to salvage a legal schedule for the remaining mandatory allocations. Outstanding unfilled positions are flagged for manual remediation (e.g., locums or different cohorts).

@@ -72,14 +72,15 @@ Currently, we use a local JSON file (`planner/data/vic_accredited_rotations.json
 
 ### The Endpoints
 - `POST /api/v1/presale/generate-lines`
-  - **Payload:** `{ "organization": str, "cohort": "PGY1" | "PGY2", "count": 10 }`
+  - **Payload:** `{ "organization": str, "state": "VIC", "cohort": "PGY1" | "PGY2", "count": 10 }`
   - **Response:** JSON structure of Job Lines OR trigger an Excel download (for easy emailing).
 
 ### Algorithmic Rules & Constraints
-The solver must enforce the following strict rules for PGY1/PGY2 (HMO1/2):
+The solver must enforce the following strict rules for PGY1/PGY2 (HMO1/2) in Victoria via the `PMCV_PGY1_Strategy` and `PMCV_PGY2_Strategy`:
 1. **Strict Compliance:** If a compliant line cannot be generated due to mathematical impossibility (e.g., lacking Surgery posts), the algorithm MUST FAIL and not return a non-compliant line.
 2. **Strict Capacity Limits:** Respect the `Posts` integer. E.g., if "ED Mildura" has 3 posts, it can only appear 3 times per term across all generated lines.
 3. **Term Durations:** PGY1s must follow the 10 + 10 + 10 + 10 + 12 week structure.
 4. **Term 5 Enforcement:** The 12-week rotation *must* be scheduled in Term 5.
 5. **Balanced Experience:** Lines must contain the requisite mix of Medicine, Surgery, and Emergency as dictated by PMCV.
-6. **HMO3+ Exemption:** Ensure logic easily bypasses these strict checks if the targeted generation cohort is HMO3 or above.
+6. **National Scaling (Strategy Pattern):** The core engine dynamically loads regional rulesets based on the requested `state`. Future demos can trivially target NSW (HETI) or WA (PMCWA) using the exact same generation payload.
+7. **HMO3+ Exemption/Unrestricted Default:** Ensure logic easily bypasses strict checks if the targeted generation cohort is HMO3 or if the state is `UNRESTRICTED` (which is the default safety setting of the API).
