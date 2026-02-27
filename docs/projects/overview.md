@@ -21,6 +21,7 @@ This section tracks the major development initiatives for the Receptor platform.
 | [Planner Frontend](./core-suite/planner-frontend) | Management of allocation plans and runs (Next.js) | 🟢 Complete |
 | [Preferencer Frontend](./core-suite/preferencer-frontend) | Worker preference submission app (Next.js) | 🟡 In Progress |
 | [Workforce Frontend](./core-suite/workforce-frontend) | Organizational master data management (Next.js) | 🟡 In Progress |
+| [Clinical Frontend Audit](./core-suite/clinical-frontend-audit) | Ongoing application of architecture & testing lessons | 🟡 In Progress |
 | [Allocator Backend](../platform/allocator-backend) | Matching algorithm and optimisation engine | 🟢 Complete |
 
 ## ⚙️ Foundational Infrastructure
