@@ -36,6 +36,13 @@ This document breaks down the execution phases based on the new architecture des
 - [x] **Realtime Event Dispatchers:** Configured `@supabase/supabase-js` realtime channel subscribers within React in `usePlannerOrchestration` hook. The UI now functions as a background job tracker, displaying status updates for `PENDING`, `GENERATING`, `COMPLETED`, `FAILED`, and `INFEASIBLE`.
 - [x] **Form State Recovery & Metadata:** Implemented `result_metadata` column to capture solver outcomes. The UI displays these results upon completion.
 
+### Phase 4 Audit: Critical Implementation Issues (REMEDIATED)
+- [x] **Issue 1: Initial State Blindness (Post-Initialization):** COMPLETED. `usePlannerOrchestration` now fetches the latest run on mount via `plannerOrchestrationService.getLatestRun`.
+- [x] **Issue 2: Local State/Form Desync:** COMPLETED. `PlannerDashboard` hydrates `termStructure` from `lastUpdate?.constraints`.
+- [x] **Issue 3: Missing Infeasibility/Diagnostic UI:** COMPLETED. Added `renderMetadata` helper to parse solver metrics and status details into structured badges/cards.
+- [x] **Issue 4: Subscription Lifecycle Race Condition:** COMPLETED. Logic refined to reliably attach to `currentRunId` discovered during initial hydration.
+- [x] **Issue 5: Lack of Navigation/Unmount Safety:** COMPLETED. Added `beforeunload` global listener to prevent accidental data loss during active solves.
+
 ### Phase 5: Observability & Resilience Sequencing
 - [ ] **Heartbeat Monitor:** Implement a heartbeat sweeper (via pg_cron or scheduled Edge Function) to enforce a TTL on runs trapped in the `GENERATING` state if the backend crashes.
 - [ ] **Logging Subsystem:** Scaffold a native Supabase logging strategy (e.g., standard Edge logs + a mapped `system_logs` Postgres table using `supabase-py`).
