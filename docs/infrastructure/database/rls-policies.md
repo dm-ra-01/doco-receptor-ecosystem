@@ -43,6 +43,8 @@ We define three primary tiers of access:
 | `allocationplans` | - | SELECT (Org-scoped view) | ALL |
 | `allocationruns` | - | SELECT (Org-scoped view) | ALL |
 | `allocation_plan_team_tag_customisations` | SELECT (Associated Plan) | ALL (Org-level) | ALL |
+| `allocation_planner_runs` | SELECT / INSERT (via Privilege) | SELECT / INSERT (via Privilege) | ALL |
+| `job_lines_history` | SELECT (via Privilege) | SELECT (via Privilege) | ALL |
 
 ---
 

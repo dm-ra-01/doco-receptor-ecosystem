@@ -18,7 +18,9 @@ A state-tracking table specifically for CP-SAT run definitions and processing qu
 | `created_at` | Timestamptz | When the run was requested. |
 | `status` | Enum | E.g., `PENDING`, `GENERATING`, `COMPLETED`, `INFEASIBLE`, `FAILED`, `CANCELLED`. |
 | `n_job_lines` | Int | Target quantity of job lines to generate. |
-| `allocation_run` | UUID | Foreign Key linking back to the parent allocation container. The parent `allocation_run` table is the definitive source of truth for the applied **constraints** arrays, allowing the user UI state to easily recover. |
+| `constraints` | Text[] | Array of active constraint identifiers. |
+| `allocation_run` | UUID | Foreign Key linking back to the parent allocation container. |
+| `result_metadata` | JSONB | Solver results, metrics, and diagnostic data. |
 
 ## Publication Configuration (Realtime)
 The deployment of this new infrastructure **must** include an alter script enabling Realtime events specifically for the `allocation_planner_runs` table:

@@ -57,6 +57,8 @@ The following tables represent the core business logic.
 | `worker_specialty_sentiments` | Phase 1 sentiment analysis per mapping. | [Active](./rls-policies) |
 | `worker_preference_customisations` | Positive/Negative constraints (Whitelists/Blacklists). | [Active](./rls-policies) |
 | `worker_screening_rules` | Results of eligibility screening logic. | [Active](./rls-policies) |
+| `allocation_planner_runs` | Logs background job executions for the CP-SAT engine. | [Active](./rls-policies) |
+| `job_lines_history` | Historical snapshots of job lines and mapping data for plan reversibility. | [Active](./rls-policies) |
 | `shifts` | Individual shift records (future feature). | Future |
 | `qualification_tags` | Tags for worker qualifications. | [Active](./rls-policies) |
 | `position_tags` | Tags for position requirements. | Pending |
@@ -115,6 +117,21 @@ The `allocationruns` table is the primary orchestration point for scheduling. Th
 | `name` | text | Display name for the run |
 | `periodstart` | date | The start of the allocation window |
 | `periodend` | date | The end of the allocation window |
+
+### allocation_planner_runs
+
+Logs background job executions for the Google OR-Tools CP-SAT engine. This table tracks the lifecycle of asynchronous planning requests.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | uuid | Primary key |
+| `createdat` | timestamptz | Creation timestamp |
+| `updatedat` | timestamptz | Last update timestamp (updates on heartbeat) |
+| `status` | text | `PENDING`, `GENERATING`, `COMPLETED`, `INFEASIBLE`, `FAILED`, `CANCELLED` |
+| `n_job_lines` | integer | Number of job lines processed |
+| `constraints` | text[] | active constraint identifiers (e.g., `VIC_PGY2`) |
+| `allocation_run` | uuid | FK to the target `allocation_run` |
+| `result_metadata` | jsonb | Solver outcomes, metrics, or diagnostic data |
 
 ## Allocation Logic & MIP Constraints
 
