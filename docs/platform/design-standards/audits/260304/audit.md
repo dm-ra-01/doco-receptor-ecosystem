@@ -1,3 +1,9 @@
+---
+title: Frontend Audit Report (260304)
+sidebar_label: Audit Report
+sidebar_position: 1
+---
+
 # Frontend Audit Report: Foundational Configuration & Stack Resilience
 
 **Date**: 2026-03-04 **Audit ID**: 260304 **Scope**: `planner-frontend`

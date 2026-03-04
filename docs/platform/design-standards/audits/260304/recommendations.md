@@ -1,3 +1,9 @@
+---
+title: Audit Recommendations (260304)
+sidebar_label: Recommendations
+sidebar_position: 2
+---
+
 # Audit Recommendations: Frontend Ecosystem (Audit 260304)
 
 Based on the audit of foundational configuration and stack resilience, the
