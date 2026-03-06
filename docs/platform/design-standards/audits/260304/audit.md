@@ -69,10 +69,9 @@ All features follow the mandated separation of concerns:
 3. **Component Layer**: UI components consuming hooks, maintaining "Clinical
    Clarity."
 
-> [!TIP]
-> **Highlight**: The `upsertJobLinePreference` in `preference-frontend`
-> implements a sophisticated retry pattern for race conditions, significantly
-> increasing the resilience of high-frequency worker interactions.
+:::tip **Highlight**: The `upsertJobLinePreference` in `preference-frontend`
+implements a sophisticated retry pattern for race conditions, significantly
+increasing the resilience of high-frequency worker interactions. :::
 
 ---
 

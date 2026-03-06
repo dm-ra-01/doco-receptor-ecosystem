@@ -14,10 +14,9 @@ production readiness.
 
 ## 🟢 Priority 1: Enterprise Observability & Telemetry
 
-> [!IMPORTANT]
-> **Issue**: All applications currently rely on `console.error` for error
-> handling and logging, which is insufficient for clinical production
-> environments.
+:::important **Issue**: All applications currently rely on `console.error` for
+error handling and logging, which is insufficient for clinical production
+environments. :::
 
 - **Action**: Integrate a centralized telemetry provider (e.g., **Sentry** or
   **Axiom**).
@@ -32,9 +31,8 @@ production readiness.
 
 ## 🟡 Priority 2: Unified Frontend Authorization (RBAC/ABAC)
 
-> [!WARNING]
-> **Issue**: `workforce-frontend` lacks explicit frontend permission guards,
-> relying solely on RLS and standard auth.
+:::warning **Issue**: `workforce-frontend` lacks explicit frontend permission
+guards, relying solely on RLS and standard auth. :::
 
 - **Action**: Port the `PermissionProvider` and `Permitted` guard pattern from
   `planner-frontend` to `workforce-frontend`.
@@ -48,10 +46,9 @@ production readiness.
 
 ## 🔵 Priority 3: Cross-App Pattern Standardization
 
-> [!TIP]
-> **Observation**: `preference-frontend` has an excellent defensive mutation
-> pattern for handling race conditions that should be a standard across the
-> ecosystem.
+:::tip **Observation**: `preference-frontend` has an excellent defensive
+mutation pattern for handling race conditions that should be a standard across
+the ecosystem. :::
 
 - **Action**: Formalize the **Defensive Mutation Pattern** as a platform
   standard.
